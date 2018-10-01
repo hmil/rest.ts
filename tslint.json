@@ -1,0 +1,10 @@
+{
+    "extends": [
+        "typestrict"
+    ],
+    "rules": {
+        "indent": [true, "spaces"],
+        "semicolon": true,
+        "quotemark": [true, "single"]
+    }
+}

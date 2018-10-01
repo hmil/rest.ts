@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "importHelpers": false,
+        "sourceMap": true,
+        "declaration": true,
+        "target": "es5",
+        "module": "commonjs",
+        "plugins": [
+            { "name": "tslint-language-service" }
+        ],
+        "lib": [
+            "es2015"
+        ]
+    }
+}
