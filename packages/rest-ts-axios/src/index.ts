@@ -9,7 +9,10 @@ interface TypedAxiosResponse<T extends EndpointDefinition> extends AxiosResponse
 }
 
 type RouteConsumerParams<T extends EndpointDefinition> = {
-    [K in KeyIfDefined<T, 'params' | 'query' | 'body'>]: K extends 'params' ? Tuple2Dict<T[K]> : ExtractRuntimeType<T[K]>;
+    [K in KeyIfDefined<T, 'params' | 'query' | 'body'>]:
+        K extends 'params' ? Tuple2Dict<T[K]> :
+        K extends 'query' ? Partial<ExtractRuntimeType<T[K]>> :
+        ExtractRuntimeType<T[K]>;
 };
 
 type UnknownRouteConsumerParams = {
@@ -18,9 +21,13 @@ type UnknownRouteConsumerParams = {
     body: unknown;
 };
 
-type RouteConsumer<T extends EndpointDefinition> = KeyIfDefined<T, 'params' | 'query' | 'body'> extends never ?
-    () => Promise<TypedAxiosResponse<T>> :
-    (params: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>;
+type RouteConsumer<T extends EndpointDefinition> = KeyIfDefined<T, 'params' | 'body'> extends never ?
+    // If the only property set is the query, then the parameter hash is optional
+    T extends Record<'query', any> ? (params?: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>
+    // Otherwise, (if none of the keys are set), the function takes no parameter at all
+    : () => Promise<TypedAxiosResponse<T>>
+    // If any other key is set, the parameter hash is required
+    : (params: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>;
 
 export type ApiConsumer<T extends ApiDefinition> = {
     [K in keyof T]: RouteConsumer<T[K]['def']>;

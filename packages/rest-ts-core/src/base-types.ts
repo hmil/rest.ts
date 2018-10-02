@@ -14,9 +14,11 @@ export type StringDefinition = rt.String | string;
 export type NumberDefinition = rt.Number | number;
 export type RecordDefinition<T> = T extends rt.Runtype ? rt.Record<Dictionary<T>> | Dictionary<T> : Dictionary<T>;
 
+export type QueryParamType = rt.Runtype<any> | any;
 export type DTO_Type = rt.Runtype<any> | RecordDefinition<any> | NumberDefinition | StringDefinition;
 
 export type ExtractBaseType<T> = T extends rt.Runtype ? rt.Static<T>
+        : T extends undefined ? undefined
         : T extends { [k: string]: any } ? { [K in keyof T]: ExtractBaseType<T[K]> }
         : T;
 

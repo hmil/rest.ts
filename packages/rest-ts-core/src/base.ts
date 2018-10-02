@@ -1,4 +1,4 @@
-import { ArrayDefinition, StringDefinition, NumberDefinition, RecordDefinition, DTO_Type } from './base-types';
+import { ArrayDefinition, StringDefinition, NumberDefinition, RecordDefinition, DTO_Type, QueryParamType } from './base-types';
 
 // Core type framework of this package
 
@@ -8,9 +8,7 @@ export interface AEndpointBuilder<T> {
 
 export type HttpMethod = 'GET' | 'PUT' | 'POST' | 'DELETE';
 
-export type ArrayQueryParam = ArrayDefinition<StringDefinition | NumberDefinition | ArrayDefinition<StringDefinition | NumberDefinition>>;
-export type QueryParam = StringDefinition | NumberDefinition | ArrayQueryParam | RecordDefinition<QueryParams>;
-export type QueryParams = { [K: string]: QueryParam };
+export type QueryParams = { [K: string]: QueryParamType };
 
 export interface EndpointDefinition {
     path: string[];
@@ -18,7 +16,7 @@ export interface EndpointDefinition {
     params?: string[];
     query?: QueryParams;
     body?: DTO_Type;
-    response: DTO_Type;
+    response: DTO_Type | undefined;
 }
 
 export interface ApiDefinition {

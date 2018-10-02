@@ -1,4 +1,5 @@
-import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition } from './base';
+import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition, EndpointDefinition } from './base';
+import { RemoveKey } from '.';
 
 // Utilities to help build interface definitions
 interface PathWithParams<A> {
@@ -10,38 +11,40 @@ export class EndpointBuilder<T> implements AEndpointBuilder<T> {
 
     constructor(public readonly def: Readonly<T>) { }
 
-    public method<U extends HttpMethod>(method: U) {
+    public method<U extends HttpMethod>(method: U): EndpointBuilder<RemoveKey<T, 'method'> & { method: U }> {
         return new EndpointBuilder<T & { method: U }>(Object.assign({}, this.def, { method }));
     }
     
-    public path<U extends PathWithParams<string[]>>(path: U) {
+    public path<U extends PathWithParams<string[]>>(path: U): EndpointBuilder<RemoveKey<T, 'path'> & { path: U }>  {
         return new EndpointBuilder<T & { path: U }>(Object.assign({}, this.def, { path }));
     }
 
-    public response<U>(response: U) {
+    public response<U>(response: U): EndpointBuilder<RemoveKey<T, 'response'> & { response: U }>  {
         return new EndpointBuilder<T & { response: U }>(Object.assign({}, this.def, { response }));
     }
 
-    public body<U>(body: U) {
+    public body<U>(body: U): EndpointBuilder<RemoveKey<T, 'body'> & { body: U }> {
         return new EndpointBuilder<T & { body: U }>(Object.assign({}, this.def, { body }));
     }
 
-    public query<U extends QueryParams>(query: U) {
+    public query<U extends QueryParams>(query: U): EndpointBuilder<RemoveKey<T, 'query'> & { query: U }> {
         return new EndpointBuilder<T & { query: U }>(Object.assign({}, this.def, { query }));
     }
 }
 
-function endpoint(pathOrStaticParts: TemplateStringsArray | string, ...params: string[]): EndpointBuilder<any> {
+function endpoint(pathOrStaticParts: TemplateStringsArray | string, ...params: string[]) {
     if (typeof pathOrStaticParts === 'string') {
         return new EndpointBuilder({
             path: [ pathOrStaticParts ],
-            params: []
+            params: [],
+            response: undefined
         });
     }
 
     return new EndpointBuilder({
         path: pathOrStaticParts.slice(),
-        params: params || []
+        params: params || [],
+        response: undefined
     });
 }
 
@@ -57,19 +60,6 @@ export interface EmptyInitialEndpointDefinition<METHOD extends HttpMethod | unde
     path: string[];
     method: METHOD;
     response: undefined;
-}
-
-export function on(path: string | TemplateStringsArray): EndpointBuilder<EmptyInitialEndpointDefinition<undefined>>;
-export function on<A extends string>(strings: TemplateStringsArray, a: A): EndpointBuilder<InitialEndpointDefinition<[A], undefined>>;
-export function on<A extends string, B extends string>(strings: TemplateStringsArray, a: A, b: B): EndpointBuilder<InitialEndpointDefinition<[A, B], undefined>>;
-export function on<A extends string, B extends string, C extends string>(strings: TemplateStringsArray, a: A, b: B, c: C): EndpointBuilder<InitialEndpointDefinition<[A, B, C], undefined>>;
-export function on<A extends string, B extends string, C extends string, D extends string>(strings: TemplateStringsArray, a: A, b: B, c: C, d: D): EndpointBuilder<InitialEndpointDefinition<[A, B, C, D], undefined>>;
-export function on<A extends string, B extends string, C extends string, D extends string, E extends string>(strings: TemplateStringsArray, a: A, b: B, c: C, d: D, e: E): EndpointBuilder<InitialEndpointDefinition<[A, B, C, D, E], undefined>>;
-export function on<A extends string, B extends string, C extends string, D extends string, E extends string, F extends string>(strings: TemplateStringsArray, a: A, b: B, c: C, d: D, e: E, f: F): EndpointBuilder<InitialEndpointDefinition<[A, B, C, D, E, F], undefined>>;
-export function on<A extends string, B extends string, C extends string, D extends string, E extends string, F extends string, G extends string>(strings: TemplateStringsArray, a: A, b: B, c: C, d: D, e: E, f: F, g: G): EndpointBuilder<InitialEndpointDefinition<[A, B, C, D, E, F, G], undefined>>;
-export function on<A extends string, B extends string, C extends string, D extends string, E extends string, F extends string, G extends string, H extends string>(strings: TemplateStringsArray, a: A, b: B, c: C, d: D, e: E, f: F, g: G, h: H): EndpointBuilder<InitialEndpointDefinition<[A, B, C, D, E, F, G, H], undefined>>;
-export function on(pathOrStaticParts: TemplateStringsArray | string, ...params: string[]): EndpointBuilder<InitialEndpointDefinition<string[], undefined>> {
-    return endpoint(pathOrStaticParts, ...params);
 }
 
 export function GET(path: string | TemplateStringsArray): EndpointBuilder<EmptyInitialEndpointDefinition<'GET'>>;
