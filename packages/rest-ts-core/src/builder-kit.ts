@@ -1,4 +1,4 @@
-import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition, EndpointDefinition } from './base';
+import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition } from './base';
 import { RemoveKey } from '.';
 
 // Utilities to help build interface definitions

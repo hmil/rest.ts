@@ -9,6 +9,7 @@ import { ExtractBaseType } from './base-types';
  * This is helpful to transition from definition of an interface to its concrecte application.
  */
 export type ExtractRuntimeType<T> =
+        T extends undefined ? void :
         T extends Array<infer T> ?
         T extends [ infer A ] ? [ ExtractBaseType<A> ] :
         T extends [ infer A, infer B ] ? [ ExtractBaseType<A>, ExtractBaseType<B> ] :
@@ -39,7 +40,7 @@ export type Tuple2Dict<T> =
 export type Diff<T, U> = T extends U ? never : T;
 export type RemoveKey<T, Key extends string> = {
     [K in Diff<keyof T, Key>]: T[K];
-}
+};
 export type Pick<T, Key extends keyof T> = {
     [K in Key]: T[K];
-}
+};

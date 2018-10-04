@@ -1,4 +1,4 @@
-import { ArrayDefinition, StringDefinition, NumberDefinition, RecordDefinition, DTO_Type, QueryParamType } from './base-types';
+import { DTO_Type, QueryParamType } from './base-types';
 
 // Core type framework of this package
 

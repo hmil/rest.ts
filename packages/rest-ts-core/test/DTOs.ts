@@ -4,7 +4,7 @@ export const TodoItemType = rt.Union(
     rt.Literal('housekeeping'),
     rt.Literal('work'),
     rt.Literal('shopping')
-)
+);
 
 export const TodoItem = rt.Record({
     id: rt.String,

@@ -3,7 +3,7 @@ import * as express from 'express';
 
 import { ApiDefinition, EndpointDefinition } from 'rest-ts-core';
 import { getPathWithParams } from 'rest-ts-core';
-import { ExtractBaseType, deserialize } from 'rest-ts-core';
+import { ExtractRuntimeType, deserialize } from 'rest-ts-core';
 import { Tuple2Dict } from 'rest-ts-core';
 
 /**
@@ -16,13 +16,13 @@ type PromiseOrValue<T> = PromiseLike<T> | T;
  * An express Request with proper typings.
  */
 interface TypedRequest<T extends EndpointDefinition> extends express.Request {
-    body: ExtractBaseType<T['body']>;
+    body: ExtractRuntimeType<T['body']>;
     params: Tuple2Dict<T['params']>;
-    query: ExtractBaseType<T['query']>;
+    query: ExtractRuntimeType<T['query']>;
 }
 
 export type RouteHandler<T extends EndpointDefinition> =
-    (req: TypedRequest<T>, res: express.Response) => PromiseOrValue<ExtractBaseType<T['response']>>;
+    (req: TypedRequest<T>, res: express.Response) => PromiseOrValue<ExtractRuntimeType<T['response']>>;
 
 export type RouterDefinition<T extends ApiDefinition> = {
     [K in keyof T]: RouteHandler<T[K]['def']>;

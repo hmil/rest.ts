@@ -1,15 +1,12 @@
 import { createConsumer } from '..';
 import { todoAPI } from 'rest-ts-core/test/todoAPI';
-import { ExtractRuntimeType } from 'rest-ts-core';
-import { ExtractBaseType } from 'rest-ts-core/dist/base-types';
 
 const api = createConsumer('http://localhost:3000/api', todoAPI);
-
-
 
 async function example1() {
 
     const version = await api.version();
+    console.log(`version: ${version}`);
 
     await api.createList({
         body: {
@@ -22,9 +19,9 @@ async function example1() {
         }
     });
 
-    const allLists = await api.findLists();
+    await api.findLists();
 
-    const houseLists = await api.findLists({
+    await api.findLists({
         query: {
             searchQuery: 'home'
         }
@@ -39,6 +36,13 @@ async function example1() {
             type: 'housekeeping'
         }
     });
+
+    await api.moveTodo({
+        params: {
+            listId: '123',
+            todoId: '456'
+        }
+    });
 }
 
-
+example1().catch((e) => console.error(e));

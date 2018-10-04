@@ -15,7 +15,8 @@
     "rest-ts-core": "0.0.0"
   },
   "scripts": {
-    "build": "tsc"
+    "tsc": "tsc",
+    "tslint": "tslint"
   },
   "repository": {
     "type": "git",
