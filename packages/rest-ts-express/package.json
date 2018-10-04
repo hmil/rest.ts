@@ -14,6 +14,13 @@
     "typestrict": "^1.0.1",
     "rest-ts-core": "0.0.0"
   },
+  "peerDependencies": {
+    "express": "^4.0.0"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "tsc": "tsc",
     "tslint": "tslint"

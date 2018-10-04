@@ -14,10 +14,17 @@
     "typestrict": "^1.0.1",
     "rest-ts-core": "0.0.0"
   },
+  "peerDependencies": {
+    "axios": "^0.16.0"
+  },
   "scripts": {
     "tsc": "tsc",
     "tslint": "tslint"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hmil/rest.ts.git"
