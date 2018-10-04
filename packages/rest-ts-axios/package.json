@@ -15,7 +15,8 @@
     "typestrict": "^1.0.1"
   },
   "peerDependencies": {
-    "axios": "^0.16.0"
+    "axios": "^0.16.0",
+    "rest-ts-core": "^0.0.2"
   },
   "scripts": {
     "tsc": "tsc",

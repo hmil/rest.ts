@@ -15,7 +15,8 @@
     "typestrict": "^1.0.1"
   },
   "peerDependencies": {
-    "express": "^4.0.0"
+    "express": "^4.0.0",
+    "rest-ts-core": "^0.0.2"
   },
   "files": [
     "dist",

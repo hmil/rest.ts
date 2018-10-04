@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse, AxiosInstance } from 'axios';
 import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, makePathWithParams } from 'rest-ts-core';
 
 type IsInRecord<T, Key extends keyof T> = T extends Record<Key, any> ? Key : never;
@@ -33,15 +33,15 @@ export type ApiConsumer<T extends ApiDefinition> = {
     [K in keyof T]: RouteConsumer<T[K]['def']>;
 };
 
-export function createConsumer<T extends ApiDefinition>(baseURL: string, apiDefinition: T): ApiConsumer<T> {
+export function createConsumer<T extends ApiDefinition>(apiDefinition: T, axios: AxiosInstance): ApiConsumer<T> {
     const ret: ApiConsumer<T> = {} as any;
     for (const i of Object.keys(apiDefinition)) {
-        ret[i] = makeAxiosEndpoint(baseURL, apiDefinition[i].def) as any;
+        ret[i] = makeAxiosEndpoint(axios, apiDefinition[i].def) as any;
     }
     return ret;
 }
 
-function makeAxiosEndpoint<T extends EndpointDefinition>(baseURL: string, def: T): RouteConsumer<EndpointDefinition> {
+function makeAxiosEndpoint<T extends EndpointDefinition>(axios: AxiosInstance, def: T): RouteConsumer<EndpointDefinition> {
     function handler(): Promise<TypedAxiosResponse<T>>;
     function handler(args: UnknownRouteConsumerParams): Promise<TypedAxiosResponse<T>>;
     function handler(args?: UnknownRouteConsumerParams): Promise<TypedAxiosResponse<T>> {
@@ -49,7 +49,6 @@ function makeAxiosEndpoint<T extends EndpointDefinition>(baseURL: string, def: T
         const body = args != null ? args.body : undefined;
         const query = args != null ? args.query : undefined;
         return axios({
-            baseURL,
             method: def.method.toLowerCase(),
             url: makePathWithParams(def, params),
             params: query,

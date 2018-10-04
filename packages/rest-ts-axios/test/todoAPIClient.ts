@@ -1,7 +1,10 @@
 import { createConsumer } from '..';
+import axios from 'axios';
 import { todoAPI } from 'rest-ts-core/test/todoAPI';
 
-const api = createConsumer('http://localhost:3000/api', todoAPI);
+const api = createConsumer(todoAPI, axios.create({
+    baseURL: 'http://localhost:3000/api'
+}));
 
 async function example1() {
 
