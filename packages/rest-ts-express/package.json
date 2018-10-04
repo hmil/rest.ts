@@ -1,6 +1,6 @@
 {
   "name": "rest-ts-express",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Type-safe rest API definitions for express",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,11 +8,11 @@
     "@types/express": "^4.16.0",
     "axios": "^0.18.0",
     "express": "^4.16.3",
+    "rest-ts-core": "^0.0.1",
     "runtypes": "^2.1.6",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1",
-    "typestrict": "^1.0.1",
-    "rest-ts-core": "0.0.0"
+    "typestrict": "^1.0.1"
   },
   "peerDependencies": {
     "express": "^4.0.0"
