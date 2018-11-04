@@ -1,6 +1,6 @@
 # Rest.ts
 
-The definitive HTTP API definition framework for TypeScript.
+Type safety across REST APIs in TypeScript!
 
 ## What is this?
 
