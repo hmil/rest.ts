@@ -6,7 +6,7 @@ export interface AEndpointBuilder<T> {
     def: T;
 }
 
-export type HttpMethod = 'GET' | 'PUT' | 'POST' | 'DELETE';
+export type HttpMethod = 'GET' | 'PUT' | 'POST' | 'DELETE' | 'PATCH';
 
 export type QueryParams = { [K: string]: QueryParamType };
 

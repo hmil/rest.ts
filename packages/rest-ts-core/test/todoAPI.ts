@@ -1,5 +1,5 @@
 import * as rt from 'runtypes';
-import { defineAPI, GET, POST, PUT } from '../dist';
+import { defineAPI, GET, POST, PUT, PATCH } from '../dist';
 import { ResultPage, TodoList, TodoItem, CreateListRequest, CreateTodoItemRequest } from './DTOs';
 
 /**
@@ -24,7 +24,7 @@ export const todoAPI = defineAPI({
         .body(CreateListRequest)
         .response(TodoList),
     
-    updateList: PUT `/list/${'id'}`
+    updateList: PATCH `/list/${'id'}`
         .body(CreateListRequest)
         .response(TodoList),
     
