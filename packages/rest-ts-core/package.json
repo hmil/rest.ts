@@ -1,6 +1,6 @@
 {
   "name": "rest-ts-core",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Type-safe rest API definitions to share",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
