@@ -44,6 +44,6 @@
   "homepage": "https://github.com/hmil/rest.ts#readme",
   "dependencies": {
     "@senhung/http-exceptions": "^1.1.1",
-    "rest-ts-core": "^0.1.0"
+    "rest-ts-core": "0.1.0"
   }
 }
