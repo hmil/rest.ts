@@ -1,6 +1,6 @@
 import * as rt from 'runtypes';
-import { defineAPI, GET, POST, PUT, PATCH } from '../dist';
-import { ResultPage, TodoList, TodoItem, CreateListRequest, CreateTodoItemRequest } from './DTOs';
+import { defineAPI, GET, POST, PUT, UPDATE } from '../dist';
+import { ResultPage, TodoList, TodoItem, CreateListRequest, CreateTodoItemRequest } from '../../../test/e2e-vanilla/DTOs';
 
 /**
  * This is the API definition that will be shared between the backend and the frontend.
@@ -24,7 +24,7 @@ export const todoAPI = defineAPI({
         .body(CreateListRequest)
         .response(TodoList),
     
-    updateList: PATCH `/list/${'id'}`
+    updateList: UPDATE `/list/${'id'}`
         .body(CreateListRequest)
         .response(TodoList),
     

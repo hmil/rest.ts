@@ -38,8 +38,5 @@
   "bugs": {
     "url": "https://github.com/hmil/rest.ts/issues"
   },
-  "homepage": "https://github.com/hmil/rest.ts#readme",
-  "dependencies": {
-    "@senhung/http-exceptions": "^1.1.1"
-  }
+  "homepage": "https://github.com/hmil/rest.ts#readme"
 }

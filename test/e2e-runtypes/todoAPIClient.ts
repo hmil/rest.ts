@@ -1,4 +1,4 @@
-import { createConsumer } from '..';
+import { createConsumer } from '../../packages/rest-ts-axios/dist';
 import axios from 'axios';
 import { todoAPI } from 'rest-ts-core/test/todoAPI';
 
