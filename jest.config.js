@@ -11,4 +11,11 @@ module.exports = {
       "js",
       "json",
     ],
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coverageDirectory": "build/coverage",
+    "coveragePathIgnorePatterns": [
+      "node_modules",
+      "test"
+    ]
 }

@@ -38,7 +38,7 @@ export type Tuple2Dict<T> =
     : { [key in string]: string };
 
 export type Diff<T, U> = T extends U ? never : T;
-export type RemoveKey<T, Key extends string> = {
+export type RemoveKey<T, Key extends keyof T> = {
     [K in Diff<keyof T, Key>]: T[K];
 };
 export type Pick<T, Key extends keyof T> = {

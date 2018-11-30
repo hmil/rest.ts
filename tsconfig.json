@@ -1,11 +1,13 @@
 {
     "compilerOptions": {
+        "baseUrl": "packages",
         "strict": true,
         "importHelpers": false,
-        "sourceMap": true,
+        "inlineSourceMap": true,
         "declaration": true,
         "target": "es5",
         "module": "commonjs",
+        "removeComments": false,
         "plugins": [
             { "name": "tslint-language-service" }
         ],

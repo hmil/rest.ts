@@ -1,4 +1,4 @@
-import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition } from './base';
+import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition, EndpointDefinition } from './base';
 import { RemoveKey } from '.';
 
 // Utilities to help build interface definitions
@@ -7,7 +7,7 @@ interface PathWithParams<A> {
     params: A;
 }
 
-export class EndpointBuilder<T> implements AEndpointBuilder<T> {
+export class EndpointBuilder<T extends Partial<EndpointDefinition>> implements AEndpointBuilder<T> {
 
     constructor(public readonly def: Readonly<T>) { }
 
@@ -101,7 +101,7 @@ export function POST(pathOrStaticParts: TemplateStringsArray | string, ...params
     return endpoint(pathOrStaticParts, ...params).method('POST');
 }
 
-export function DELETE(path: string): EndpointBuilder<EmptyInitialEndpointDefinition<'DELETE'>>;
+export function DELETE(path: string | TemplateStringsArray): EndpointBuilder<EmptyInitialEndpointDefinition<'DELETE'>>;
 export function DELETE<A extends string>(strings: TemplateStringsArray, a: A): EndpointBuilder<InitialEndpointDefinition<[A], 'DELETE'>>;
 export function DELETE<A extends string, B extends string>(strings: TemplateStringsArray, a: A, b: B): EndpointBuilder<InitialEndpointDefinition<[A, B], 'DELETE'>>;
 export function DELETE<A extends string, B extends string, C extends string>(strings: TemplateStringsArray, a: A, b: B, c: C): EndpointBuilder<InitialEndpointDefinition<[A, B, C], 'DELETE'>>;
@@ -114,8 +114,7 @@ export function DELETE(pathOrStaticParts: TemplateStringsArray | string, ...para
     return endpoint(pathOrStaticParts, ...params).method('DELETE');
 }
 
-
-export function PATCH(path: string): EndpointBuilder<EmptyInitialEndpointDefinition<'PATCH'>>;
+export function PATCH(path: string | TemplateStringsArray): EndpointBuilder<EmptyInitialEndpointDefinition<'PATCH'>>;
 export function PATCH<A extends string>(strings: TemplateStringsArray, a: A): EndpointBuilder<InitialEndpointDefinition<[A], 'PATCH'>>;
 export function PATCH<A extends string, B extends string>(strings: TemplateStringsArray, a: A, b: B): EndpointBuilder<InitialEndpointDefinition<[A, B], 'PATCH'>>;
 export function PATCH<A extends string, B extends string, C extends string>(strings: TemplateStringsArray, a: A, b: B, c: C): EndpointBuilder<InitialEndpointDefinition<[A, B, C], 'PATCH'>>;

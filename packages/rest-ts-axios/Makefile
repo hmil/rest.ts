@@ -7,10 +7,10 @@ build: $(BIN)
 
 .PHONY: lint
 lint:
-	npm run tslint -- -p .
+	../../node_modules/.bin/tslint -p .
 
-$(BIN): $(NODE_MODULES) $(SRC)
-	npm run tsc
+$(BIN): $(NODE_MODULES) $(SRC) tsconfig.json
+	../../node_modules/.bin/tsc -p .
 
 $(NODE_MODULES): package-lock.json package.json
 	npm install
