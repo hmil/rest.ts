@@ -1,6 +1,6 @@
 {
   "name": "rest-ts-express",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Type-safe rest API definitions for express",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
