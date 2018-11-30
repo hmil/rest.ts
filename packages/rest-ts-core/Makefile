@@ -13,6 +13,6 @@ $(BIN): $(NODE_MODULES) $(SRC)
 	npm run tsc
 
 $(NODE_MODULES): package-lock.json package.json
-	make -C ../.. bootstrap
+	npm ci
 	touch node_modules/.makets
 

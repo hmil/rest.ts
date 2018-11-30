@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "strict": true,
-        "baseUrl": "../../packages"
+        "baseUrl": "../../packages",
+        "lib": ["es2015"]
     }
 }

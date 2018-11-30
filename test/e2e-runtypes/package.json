@@ -1,6 +1,7 @@
 {
     "private": true,
     "devDependencies": {
+        "axios": "^0.18.0",
         "runtypes": "^2.1.6"
     }
 }

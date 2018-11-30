@@ -1,6 +1,6 @@
-import { createConsumer } from '../../packages/rest-ts-axios/dist';
+import { createConsumer } from 'rest-ts-axios';
 import axios from 'axios';
-import { todoAPI } from 'rest-ts-core/test/todoAPI';
+import { todoAPI } from './todoAPI';
 
 const api = createConsumer(todoAPI, axios.create({
     baseURL: 'http://localhost:3000/api'

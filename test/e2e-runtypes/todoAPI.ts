@@ -1,6 +1,6 @@
 import * as rt from 'runtypes';
-import { defineAPI, GET, POST, PUT, UPDATE } from '../dist';
-import { ResultPage, TodoList, TodoItem, CreateListRequest, CreateTodoItemRequest } from '../../../test/e2e-vanilla/DTOs';
+import { defineAPI, GET, POST, PUT, UPDATE } from 'rest-ts-core';
+import { ResultPage, TodoList, TodoItem, CreateListRequest, CreateTodoItemRequest } from './DTOs';
 
 /**
  * This is the API definition that will be shared between the backend and the frontend.

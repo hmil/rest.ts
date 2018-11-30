@@ -1,6 +1,6 @@
-import { createRouter } from '../../packages/rest-ts-express/dist';
-import { todoAPI } from 'rest-ts-core/test/todoAPI';
-import { TodoList, ResultPage, TodoItem } from 'rest-ts-core/test/DTOs';
+import { createRouter } from 'rest-ts-express';
+import { todoAPI } from './todoAPI';
+import { TodoList, ResultPage, TodoItem } from './DTOs';
 
 // TODO: This might be nicer defined using a builder
 createRouter(todoAPI, {
