@@ -9,8 +9,12 @@ packages/rest-ts-axios: packages/rest-ts-core
 test/e2e-runtypes: packages/rest-ts-express packages/rest-ts-axios
 test/e2e-vanilla: packages/rest-ts-express packages/rest-ts-axios
 
+.PHONY: test
+test: $(NODE_MODULES)
+	npm test
+
 $(NODE_MODULES): package.json package-lock.json
-	npm ci
+	npm install
 	touch node_modules/.makets
 
 # Dispatches the tasks accross all packages

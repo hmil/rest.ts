@@ -1,5 +1,5 @@
 import * as rt from 'runtypes';
-import { defineAPI, GET, POST, PUT, UPDATE } from 'rest-ts-core';
+import { defineAPI, GET, POST, PUT, PATCH } from 'rest-ts-core';
 import { ResultPage, TodoList, TodoItem, CreateListRequest, CreateTodoItemRequest } from './DTOs';
 
 /**
@@ -24,7 +24,7 @@ export const todoAPI = defineAPI({
         .body(CreateListRequest)
         .response(TodoList),
     
-    updateList: UPDATE `/list/${'id'}`
+    updateList: PATCH `/list/${'id'}`
         .body(CreateListRequest)
         .response(TodoList),
     

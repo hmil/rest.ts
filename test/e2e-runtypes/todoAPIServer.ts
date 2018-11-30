@@ -2,8 +2,7 @@ import { createRouter } from 'rest-ts-express';
 import { todoAPI } from './todoAPI';
 import { TodoList, ResultPage, TodoItem } from './DTOs';
 
-// TODO: This might be nicer defined using a builder
-createRouter(todoAPI, {
+export const router = createRouter(todoAPI, {
     version: async () => '1',
 
     findLists: async () => {
