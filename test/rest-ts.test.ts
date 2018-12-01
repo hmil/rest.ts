@@ -1,8 +1,9 @@
-import { router } from './e2e-runtypes/testAPIServer';
-import { getClient } from './e2e-runtypes/testAPIClient';
+import { router } from './fixtures/testAPIServer';
+import { getClient } from './fixtures/testAPIClient';
 import * as express from 'express';
 import * as http from 'http';
 import { json } from 'body-parser';
+import { ClassBasedResponse, ClassBasedRequest } from './fixtures/DTOs';
 
 const port = 3000
 const apiMountPoint = '/api';
@@ -94,4 +95,26 @@ test('request body', async () => {
     expect(response.data.done).toEqual(false);
     expect(response.data.type).toEqual('shopping');
     expect(response.data.id).toEqual('deadbeef');
+});
+
+test('no response', async () => {
+    // An endpoint with no response will yield a 404
+    try {
+        await client.noRepsonseEndpoint();
+        fail('Expected an exception');
+    } catch (e) {
+        expect(e.response.status).toEqual(404);
+    }
+});
+
+test('constructor-based', async () => {
+    const response = await client.constructorBodyAndResponse({
+        body: new ClassBasedRequest(
+            'Hello world',
+            'cat'
+        )
+    });
+
+    expect(response.data.happy).toEqual(true);
+    expect(response.data.lyrics).toEqual('Hello world');
 });

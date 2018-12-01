@@ -4,6 +4,9 @@
   "description": "Type-safe rest API definitions to share",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "dependencies": {
+    "runtypes": "^2.1.6"
+  },
   "files": [
     "dist",
     "src"

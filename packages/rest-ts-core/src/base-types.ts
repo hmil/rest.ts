@@ -18,6 +18,7 @@ export type QueryParamType = rt.Runtype<any> | any;
 export type DTO_Type = rt.Runtype<any> | RecordDefinition<any> | NumberDefinition | StringDefinition;
 
 export type ExtractBaseType<T> = T extends rt.Runtype ? rt.Static<T>
+        : T extends { new(...args: any[]): infer T } ? T
         : T extends { [k: string]: any } ? { [K in keyof T]: ExtractBaseType<T[K]> }
         : T;
 

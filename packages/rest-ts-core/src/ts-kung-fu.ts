@@ -11,15 +11,15 @@ import { ExtractBaseType } from './base-types';
 export type ExtractRuntimeType<T> =
         T extends undefined ? void :
         T extends Array<infer T> ?
-        T extends [ infer A ] ? [ ExtractBaseType<A> ] :
-        T extends [ infer A, infer B ] ? [ ExtractBaseType<A>, ExtractBaseType<B> ] :
-        T extends [ infer A, infer B, infer C ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C> ] :
-        T extends [ infer A, infer B, infer C, infer D ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D> ] :
-        T extends [ infer A, infer B, infer C, infer D, infer E ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E> ] :
-        T extends [ infer A, infer B, infer C, infer D, infer E, infer F ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E>, ExtractBaseType<F> ] :
-        T extends [ infer A, infer B, infer C, infer D, infer E, infer F, infer G ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E>, ExtractBaseType<F>, ExtractBaseType<G> ] :
-        T extends [ infer A, infer B, infer C, infer D, infer E, infer F, infer G, infer H ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E>, ExtractBaseType<F>, ExtractBaseType<G>, ExtractBaseType<H> ] :
-        Array<ExtractBaseType<T>> :
+            T extends [ infer A ] ? [ ExtractBaseType<A> ] :
+            T extends [ infer A, infer B ] ? [ ExtractBaseType<A>, ExtractBaseType<B> ] :
+            T extends [ infer A, infer B, infer C ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C> ] :
+            T extends [ infer A, infer B, infer C, infer D ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D> ] :
+            T extends [ infer A, infer B, infer C, infer D, infer E ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E> ] :
+            T extends [ infer A, infer B, infer C, infer D, infer E, infer F ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E>, ExtractBaseType<F> ] :
+            T extends [ infer A, infer B, infer C, infer D, infer E, infer F, infer G ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E>, ExtractBaseType<F>, ExtractBaseType<G> ] :
+            T extends [ infer A, infer B, infer C, infer D, infer E, infer F, infer G, infer H ] ? [ ExtractBaseType<A>, ExtractBaseType<B>, ExtractBaseType<C>, ExtractBaseType<D>, ExtractBaseType<E>, ExtractBaseType<F>, ExtractBaseType<G>, ExtractBaseType<H> ] :
+            Array<ExtractBaseType<T>> :
         ExtractBaseType<T>;
 
 /** 

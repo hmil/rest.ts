@@ -6,6 +6,11 @@ export interface AEndpointBuilder<T> {
     def: T;
 }
 
+/**
+ * List of the supported HTTP verbs.
+ * 
+ * If you think something is missing here, feel free to open an issue.
+ */
 export type HttpMethod = 'GET' | 'PUT' | 'POST' | 'DELETE' | 'PATCH';
 
 export type QueryParams = { [K: string]: QueryParamType };

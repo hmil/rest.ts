@@ -34,3 +34,17 @@ export const PathData = rt.Record({
     kind: rt.String,
     id: rt.String
 });
+
+export class ClassBasedRequest {
+    constructor(
+            public message: string,
+            public kind: 'person' | 'cat') {
+    }   
+}
+
+export class ClassBasedResponse {
+    constructor(
+            public lyrics: string,
+            public happy: boolean) {
+    }
+}

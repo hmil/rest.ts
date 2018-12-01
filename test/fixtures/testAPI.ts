@@ -1,6 +1,6 @@
 import * as rt from 'runtypes';
 import { defineAPI, GET, POST, PUT, PATCH, DELETE } from 'rest-ts-core';
-import { QueryParamsResponse, TodoItem, SavedTodoItem, SimpleMessage, PathData } from './DTOs';
+import { QueryParamsResponse, TodoItem, SavedTodoItem, SimpleMessage, PathData, ClassBasedRequest, ClassBasedResponse } from './DTOs';
 
 /**
  * This is the API definition that will be shared between the backend and the frontend.
@@ -42,5 +42,9 @@ export const todoAPI = defineAPI({
     noRepsonseEndpoint: PUT `/noResponse`,
 
     pathParams: GET `/path/${'kind'}/id/${'id'}`
-        .response(PathData)
+        .response(PathData),
+
+    constructorBodyAndResponse: POST `/withConstructor`
+        .response(ClassBasedResponse)
+        .body(ClassBasedRequest)
 });

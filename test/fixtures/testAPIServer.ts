@@ -30,4 +30,10 @@ export const router = buildRouter(todoAPI, (builder) => builder
     .simplePut(() => 'OK')
     .simpleDelete(() => 'OK')
     .noTemplateString(() => 'OK')
+    .constructorBodyAndResponse((req) => {
+        return {
+            happy: req.body.kind === 'cat',
+            lyrics: req.body.message
+        };
+    })
 );
