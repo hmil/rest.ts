@@ -1,37 +1,37 @@
 {
-  "name": "rest-ts-axios",
-  "version": "0.1.2",
-  "description": "Type-safe rest API definitions for axios",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "peerDependencies": {
-    "axios": "^0.16.0",
-    "rest-ts-core": "^0.1.0"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hmil/rest.ts.git"
-  },
-  "keywords": [
-    "typescript",
-    "rest",
-    "http",
-    "api",
-    "type",
-    "definition"
-  ],
-  "author": "Hadrien Milano <github.com/hmil>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hmil/rest.ts/issues"
-  },
-  "homepage": "https://github.com/hmil/rest.ts#readme",
-  "dependencies": {
-    "@senhung/http-exceptions": "^1.1.1",
-    "rest-ts-core": "0.1.0"
-  }
+    "name": "rest-ts-axios",
+    "version": "0.3.0",
+    "description": "Type-safe rest API definitions for axios",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "peerDependencies": {
+        "axios": "^0.16.0",
+        "rest-ts-core": "^0.3.0"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hmil/rest.ts.git"
+    },
+    "keywords": [
+        "typescript",
+        "rest",
+        "http",
+        "api",
+        "type",
+        "definition"
+    ],
+    "author": "Hadrien Milano <github.com/hmil>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hmil/rest.ts/issues"
+    },
+    "homepage": "https://github.com/hmil/rest.ts#readme",
+    "dependencies": {
+        "@senhung/http-exceptions": "^1.1.1",
+        "rest-ts-core": "0.1.0"
+    }
 }

@@ -9,6 +9,10 @@ build: $(BIN)
 lint:
 	../../node_modules/.bin/tslint -p .
 
+.PHONY: publish
+publish: dist # This will fail if we forgot to keep the build directory during the publish phase
+	npm publish
+
 $(BIN): $(NODE_MODULES) $(SRC)
 	../../node_modules/.bin/tsc -p .
 
