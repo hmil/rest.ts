@@ -57,19 +57,26 @@ Use `rest-ts-express` to create a binding for an expressjs server.
 import { createRouter } from 'rest-ts-express';
 import { FlowerAPI } from './flowerAPI';
 
-const router = createRouter(FlowerAPI, {
-    listFlowers: async (req, res) => {
+const myApiRouter = buildRouter(FlowerAPI, (_) => _
+    .listFlowers(async (req, res) => {
+        return {
+            id:
+        }
+    })
     
-    },
+    .addFlower(async (req, res) => {
     
-    addFlower: async (req, res) => {
+    })
     
-    },
+    .getFlowerDetails(async (req, res) => {
     
-    getFlowerDetails: async (req, res) => {
-    
-    }
-});
+    })
+);
+
+// ... then, in your express application:
+
+app.use('/api', myApiRouter);
+
 ```
 
 ### 3. Consume the API
@@ -92,6 +99,9 @@ const api = createConsumer(FlowerAPI, driver);
 const roseResponse = await api.addFlower({
     body: new Flower('red', 'rose')
 });
+
+// The response is fully type-checked out of the box!
+roseResponse.data.id; // type: string
 ```
 
 <sub><sup>*</sup>[axios](https://github.com/axios/axios) is the best cross-platform HTTP client for TypeScript out there.</sub>
