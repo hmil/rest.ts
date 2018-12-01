@@ -1,18 +1,30 @@
 
 NODE_MODULES=node_modules/.makets
-LERNA=node_modules/.bin/lerna
 
 PACKAGES=$(wildcard packages/*)
-TASKS=build test
+TASKS=build lint publish
+
+publish: pre-publish-check
 
 packages/rest-ts-express: packages/rest-ts-core
 packages/rest-ts-axios: packages/rest-ts-core
+test/e2e-runtypes: packages/rest-ts-express packages/rest-ts-axios
+test/e2e-vanilla: packages/rest-ts-express packages/rest-ts-axios
 
-bootstrap: $(NODE_MODULES)
-	$(LERNA) bootstrap
+pre-publish-check:
+	if [ -z "$$TRAVIS" ]; then echo "The publish task may only run in travis. Did you mean 'release'?" && exit 1; fi
+
+.PHONY: release
+release: test
+	npm run release
+
+.PHONY: test
+test: $(NODE_MODULES)
+	$(MAKE) build
+	npm test
 
 $(NODE_MODULES): package.json package-lock.json
-	npm ci
+	npm install
 	touch node_modules/.makets
 
 # Dispatches the tasks accross all packages

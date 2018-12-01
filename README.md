@@ -8,6 +8,10 @@ Rest.ts lets you write API contracts that tie together consumers and producers w
 - Auto-completion / intelliSense
 - Easy code navigation
 
+## Project status
+
+This project is now past the _MVP_. It works pretty darn well, and the core use cases are covered with tests. However, there are certainly corner cases out there which haven't been tested. **Please give this project a try and, more importantly, leave some feedback in the issues section**.
+
 ## How to use
 
 ### 1. Define your API
@@ -40,11 +44,11 @@ export const FlowerAPI = defineAPI({
         })
         .response(Flower[]),
         
-     addFlower: POST `/flowers`
+    addFlower: POST `/flowers`
         .body(Flower)
         .response({ id: 'string' }),
         
-     getFlowerDetails: GET `/flowers/${'id'}/details`
+    getFlowerDetails: GET `/flowers/${'id'}/details`
         .response(FlowerDetail)
 });
 ```
@@ -57,19 +61,26 @@ Use `rest-ts-express` to create a binding for an expressjs server.
 import { createRouter } from 'rest-ts-express';
 import { FlowerAPI } from './flowerAPI';
 
-const router = createRouter(FlowerAPI, {
-    listFlowers: async (req, res) => {
+const myApiRouter = buildRouter(FlowerAPI, (_) => _
+    .listFlowers(async (req, res) => {
+        return {
+            id:
+        }
+    })
     
-    },
+    .addFlower(async (req, res) => {
     
-    addFlower: async (req, res) => {
+    })
     
-    },
+    .getFlowerDetails(async (req, res) => {
     
-    getFlowerDetails: async (req, res) => {
-    
-    }
-});
+    })
+);
+
+// ... then, in your express application:
+
+app.use('/api', myApiRouter);
+
 ```
 
 ### 3. Consume the API
@@ -92,6 +103,9 @@ const api = createConsumer(FlowerAPI, driver);
 const roseResponse = await api.addFlower({
     body: new Flower('red', 'rose')
 });
+
+// The response is fully type-checked out of the box!
+roseResponse.data.id; // type: string
 ```
 
 <sub><sup>*</sup>[axios](https://github.com/axios/axios) is the best cross-platform HTTP client for TypeScript out there.</sub>
@@ -131,12 +145,3 @@ export const flowerAPI = defineAPI({
         }))
 });
 ```
-
-WIP Status:
-
-- [x] Add Makefiles
-- [x] Finish importing axios
-- [x] Split into three packages (base, express, axios)
-- [x] Document usage in readme
-- [ ] Add tests
-

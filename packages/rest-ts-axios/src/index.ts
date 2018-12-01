@@ -1,4 +1,4 @@
-import { AxiosResponse, AxiosInstance } from 'axios';
+import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, makePathWithParams } from 'rest-ts-core';
 
 type IsInRecord<T, Key extends keyof T> = T extends Record<Key, any> ? Key : never;
@@ -13,7 +13,7 @@ type RouteConsumerParams<T extends EndpointDefinition> = {
         K extends 'params' ? Tuple2Dict<T[K]> :
         K extends 'query' ? Partial<ExtractRuntimeType<T[K]>> :
         ExtractRuntimeType<T[K]>;
-};
+} & AxiosRequestConfig;
 
 type UnknownRouteConsumerParams = {
     params?: { [key: string]: string };

@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- lts/*
+- node
+script:
+- make build
+- make test
+deploy:
+  provider: script
+  script: make publish
+  on:
+    tags: true
+    repo: hmil/rest.ts
+  skip_cleanup: true

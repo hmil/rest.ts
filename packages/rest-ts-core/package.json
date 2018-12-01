@@ -1,45 +1,32 @@
 {
-  "name": "rest-ts-core",
-  "version": "0.1.0",
-  "description": "Type-safe rest API definitions to share",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "devDependencies": {
-    "@types/express": "^4.16.0",
-    "axios": "^0.18.0",
-    "express": "^4.16.3",
-    "runtypes": "^2.1.6",
-    "tslint": "^5.11.0",
-    "typescript": "^3.1.1",
-    "typestrict": "^1.0.1"
-  },
-  "scripts": {
-    "tsc": "tsc",
-    "tslint": "tslint"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hmil/rest.ts.git"
-  },
-  "keywords": [
-    "typescript",
-    "rest",
-    "http",
-    "api",
-    "type",
-    "definition"
-  ],
-  "author": "Hadrien Milano <github.com/hmil>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hmil/rest.ts/issues"
-  },
-  "homepage": "https://github.com/hmil/rest.ts#readme",
-  "dependencies": {
-    "@senhung/http-exceptions": "^1.1.1"
-  }
+    "name": "rest-ts-core",
+    "version": "0.3.0",
+    "description": "Type-safe rest API definitions to share",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "dependencies": {
+        "runtypes": "^2.1.6"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hmil/rest.ts.git"
+    },
+    "keywords": [
+        "typescript",
+        "rest",
+        "http",
+        "api",
+        "type",
+        "definition"
+    ],
+    "author": "Hadrien Milano <github.com/hmil>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/hmil/rest.ts/issues"
+    },
+    "homepage": "https://github.com/hmil/rest.ts#readme"
 }

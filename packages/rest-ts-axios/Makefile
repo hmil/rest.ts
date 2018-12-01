@@ -5,27 +5,17 @@ SRC=$(shell find src -type f -name '*.ts')
 .PHONY: build
 build: $(BIN)
 
-.PHONY: test
-test: lint lint-src lint-test check-test
-
 .PHONY: lint
-lint: 
+lint:
+	../../node_modules/.bin/tslint -p .
 
-.PHONY: lint-src
-lint-src:
-	npm run tslint -- -p .
+.PHONY: publish
+publish: dist # This will fail if we forgot to keep the build directory during the publish phase
+	npm publish
 
-.PHONY: lint-test
-lint-test:
-	npm run tslint -- -p test
-
-.PHONY: check-test
-check-test:
-	npm run tsc -- -p test
-
-$(BIN): $(NODE_MODULES) $(SRC)
-	npm run tsc
+$(BIN): $(NODE_MODULES) $(SRC) tsconfig.json
+	../../node_modules/.bin/tsc -p .
 
 $(NODE_MODULES): package-lock.json package.json
-	make -C ../.. bootstrap
+	npm install
 	touch node_modules/.makets
