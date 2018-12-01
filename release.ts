@@ -57,8 +57,8 @@ function updatePackageJSON(pkgJSONLocation: string, version: string) {
     updatePackageJSON('./packages/rest-ts-core/package.json', version);
     updatePackageJSON('./packages/rest-ts-axios/package.json', version);
     updatePackageJSON('./packages/rest-ts-express/package.json', version);
-
-    // exec(`git add -u && git commit -m "release v${version}"`);
-    // exec(`git tag -s -m "${message}" "v${version}"`);
-    // exec('git push --tags origin master');
+    exec(`make test`);
+    exec(`git add -u && git commit -m "release v${version}"`);
+    exec(`git tag -s -m "${message}" "v${version}"`);
+    exec('git push --tags origin master');
 })();

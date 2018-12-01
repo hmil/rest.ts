@@ -15,7 +15,7 @@ pre-publish-check:
 	if [ -z "$$TRAVIS" ]; then echo "The publish task may only run in travis. Did you mean 'release'?" && exit 1; fi
 
 .PHONY: release
-release: test
+release:
 	npm run release
 
 .PHONY: test
