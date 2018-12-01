@@ -8,6 +8,10 @@ Rest.ts lets you write API contracts that tie together consumers and producers w
 - Auto-completion / intelliSense
 - Easy code navigation
 
+## Project status
+
+This project is now past the _MVP_. It works pretty darn well, and the core use cases are covered with tests. However, there are certainly corner cases out there which haven't been tested. **Please give this project a try and, more importantly, leave some feedback in the issues section**.
+
 ## How to use
 
 ### 1. Define your API
@@ -40,11 +44,11 @@ export const FlowerAPI = defineAPI({
         })
         .response(Flower[]),
         
-     addFlower: POST `/flowers`
+    addFlower: POST `/flowers`
         .body(Flower)
         .response({ id: 'string' }),
         
-     getFlowerDetails: GET `/flowers/${'id'}/details`
+    getFlowerDetails: GET `/flowers/${'id'}/details`
         .response(FlowerDetail)
 });
 ```
@@ -141,12 +145,3 @@ export const flowerAPI = defineAPI({
         }))
 });
 ```
-
-WIP Status:
-
-- [x] Add Makefiles
-- [x] Finish importing axios
-- [x] Split into three packages (base, express, axios)
-- [x] Document usage in readme
-- [ ] Add tests
-
