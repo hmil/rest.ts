@@ -4,15 +4,16 @@ NODE_MODULES=node_modules/.makets
 PACKAGES=$(wildcard packages/*)
 TASKS=build lint publish
 
-publish: pre-publish-check
-
 packages/rest-ts-express: packages/rest-ts-core
 packages/rest-ts-axios: packages/rest-ts-core
 test/e2e-runtypes: packages/rest-ts-express packages/rest-ts-axios
 test/e2e-vanilla: packages/rest-ts-express packages/rest-ts-axios
 
-pre-publish-check:
+prepare-for-publish:
 	if [ -z "$$TRAVIS" ]; then echo "The publish task may only run in travis. Did you mean 'release'?" && exit 1; fi
+	echo "//registry.npmjs.org/:_authToken=$$PUB_TK" > ~/.npmrc
+
+publish: prepare-for-publish
 
 .PHONY: release
 release:
