@@ -112,7 +112,7 @@ roseResponse.data.id; // type: string
 ## Recommended use
 
 **Rest.ts works best with [runtypes](https://github.com/pelotom/runtypes)**.  
-If you define your DTOs with runtypes, then `rest-ts-express` autaomatically takes care of validating the incoming data against the expected type. This helps you prevent bugs and vulnerabilities by [not trusting user input](https://www.owasp.org/index.php/Don%27t_trust_user_input) and [enforcing type checking at the boundary](https://lorefnon.tech/2018/03/25/typescript-and-validations-at-runtime-boundaries/).
+If you define your DTOs with runtypes, then `rest-ts-express` automatically takes care of validating the incoming data against the expected type. This helps you prevent bugs and vulnerabilities by [not trusting user input](https://www.owasp.org/index.php/Don%27t_trust_user_input) and [enforcing type checking at the boundary](https://lorefnon.tech/2018/03/25/typescript-and-validations-at-runtime-boundaries/).
 
 ```ts
 import * as rt from 'runtypes';
@@ -124,7 +124,7 @@ const Flower = rt.Record({
    id: rt.String
 });
 
-// Note how runtypes makes it less awkward to defined union types
+// Note how runtypes makes it less awkward to define union types
 const FlowerIndexedAttribute = rt.Union('color', 'name');
 
 export const flowerAPI = defineAPI({
