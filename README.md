@@ -1,4 +1,4 @@
-# Rest.ts
+# Rest.ts [![Build Status](https://travis-ci.org/hmil/rest.ts.svg?branch=master)](https://travis-ci.org/hmil/rest.ts) [![npm version](https://badge.fury.io/js/rest-ts-core.svg)](https://www.npmjs.com/package/rest-ts-core)
 
 Type safety across REST APIs in TypeScript!
 
