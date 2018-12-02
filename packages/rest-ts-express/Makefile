@@ -11,9 +11,9 @@ lint:
 
 .PHONY: publish
 publish: dist # This will fail if we forgot to keep the build directory during the publish phase
-	npm publish
+	npm publish || true
 
-$(BIN): $(NODE_MODULES) $(SRC)
+$(BIN): $(NODE_MODULES) $(SRC) tsconfig.json
 	../../node_modules/.bin/tsc -p .
 
 $(NODE_MODULES): package-lock.json package.json

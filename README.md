@@ -63,9 +63,8 @@ import { FlowerAPI } from './flowerAPI';
 
 const myApiRouter = buildRouter(FlowerAPI, (_) => _
     .listFlowers(async (req, res) => {
-        return {
-            id:
-        }
+        // Write your handler code here and return the response like so:
+        return myFlowersObject;
     })
     
     .addFlower(async (req, res) => {
