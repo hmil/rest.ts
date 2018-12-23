@@ -1,3 +1,7 @@
+/**
+ * @module rest-ts-axios
+ */
+
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, makePathWithParams } from 'rest-ts-core';
 

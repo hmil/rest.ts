@@ -1,3 +1,6 @@
+/**
+ * @module rest-ts-core
+ */
 
 export * from './builder-kit';
 export * from './base';

@@ -1,4 +1,8 @@
-import { ExtractBaseType } from './base-types';
+/**
+ * @module rest-ts-core
+ */
+
+ import { ExtractBaseType } from './base-types';
 
 // TypeScript utilities for ninjas
 

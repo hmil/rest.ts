@@ -1,4 +1,8 @@
-// Define basic type definitions interfaces.
+/**
+ * @module rest-ts-core
+ */
+
+ // Define basic type definitions interfaces.
 // This is the place to write interop code for the different "at the boundary" type checking libraries like "runtypes".
 
 // Currently supported runtime type checking libraries:

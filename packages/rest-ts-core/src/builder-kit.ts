@@ -1,3 +1,7 @@
+/**
+ * @module rest-ts-core
+ */
+
 import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition, EndpointDefinition } from './base';
 import { RemoveKey } from '.';
 

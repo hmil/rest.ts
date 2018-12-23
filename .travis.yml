@@ -5,10 +5,18 @@ node_js:
 script:
 - make build
 - make test
+- make docs
 deploy:
-  provider: script
-  script: make publish
-  on:
-    tags: true
-    repo: hmil/rest.ts
-  skip_cleanup: true
+  - provider: script
+    script: make publish
+    on:
+      tags: true
+      repo: hmil/rest.ts
+    skip_cleanup: true
+  - provider: pages
+    github-token: $GH_TK
+    local-dir: doc
+    on:
+      tags: true
+      repo: hmil/rest.ts
+    skip_cleanup: true

@@ -1,3 +1,7 @@
+/**
+ * @module rest-ts-express
+ */
+
 import { BadRequestHttpException } from '@senhung/http-exceptions';
 import * as express from 'express';
 

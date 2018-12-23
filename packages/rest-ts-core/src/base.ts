@@ -1,4 +1,8 @@
-import { DTO_Type, QueryParamType } from './base-types';
+/**
+ * @module rest-ts-core
+ */
+
+ import { DTO_Type, QueryParamType } from './base-types';
 
 // Core type framework of this package
 

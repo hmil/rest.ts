@@ -3,6 +3,7 @@ NODE_MODULES=node_modules/.makets
 
 PACKAGES=$(wildcard packages/*)
 TASKS=build lint publish
+DOCS_ROOT=doc/index.html
 
 packages/rest-ts-express: packages/rest-ts-core
 packages/rest-ts-axios: packages/rest-ts-core
@@ -23,6 +24,12 @@ release:
 test: $(NODE_MODULES)
 	$(MAKE) build
 	npm test
+
+.PHONY: docs
+docs: $(DOCS_ROOT)
+
+$(DOCS_ROOT): $(NODE_MODULES)
+	npm run build:doc
 
 $(NODE_MODULES): package.json package-lock.json
 	npm install

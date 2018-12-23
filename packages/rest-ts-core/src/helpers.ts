@@ -1,4 +1,8 @@
-import { EndpointDefinition } from './base';
+/**
+ * @module rest-ts-core
+ */
+
+ import { EndpointDefinition } from './base';
 
 export function getPathWithParams(def: EndpointDefinition): string {
     let pathBuilder = def.path[0];
