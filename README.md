@@ -14,9 +14,9 @@ Rest.ts lets you write API contracts that tie together consumers and producers w
 
 ### Guides
 
-If you are just getting started, read the five minutes [quick start](https://github.com/hmil/rest.ts/wiki/Quick-Start) guide to get up to speed.
+If you are just getting started, read the five minutes [**quick start**](https://github.com/hmil/rest.ts/wiki/Quick-Start) guide to get up to speed.
 
-You will find all **usage guides** in [the wiki](https://github.com/hmil/rest.ts/wiki)
+You will find [**all guides** in the wiki](https://github.com/hmil/rest.ts/wiki).
 
 ### API documentation
 

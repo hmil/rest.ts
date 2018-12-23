@@ -30,7 +30,6 @@ docs: $(DOCS_ROOT)
 
 $(DOCS_ROOT): $(NODE_MODULES) README.md $(wildcard packages/*/src/*.ts)
 	npm run build:doc
-	echo "ul ul { margin: 0 !important; }" >> doc/assets/css/main.css
 	cp -r resources doc/resources
 
 $(NODE_MODULES): package.json package-lock.json
