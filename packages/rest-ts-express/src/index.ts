@@ -168,7 +168,7 @@ export function createRouter<T extends ApiDefinition>(apiDefinition: T, hash: Ro
     return router;
 }
 
-export function makeHandler<T extends EndpointDefinition>(def: T, fn: RouteHandler<T>) {
+function makeHandler<T extends EndpointDefinition>(def: T, fn: RouteHandler<T>) {
     return (req: express.Request, res: express.Response, next: express.NextFunction) => {
         (async () => {
             sanitizeIncomingRequest(def, req);

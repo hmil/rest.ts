@@ -80,7 +80,7 @@ export type ApiConsumer<T extends ApiDefinition> = {
  * // Step 1: Import the API definition you created with `rest-ts-core`
  * import { myCustomAPI } from 'shared/apis/myCustomAPI';
  * 
- * // Step 1: Create an axios instance with a given base URL.
+ * // Step 2: Create an axios instance with a given base URL.
  * // You can also customize global settings such as authentication or custom headers.
  * // Refer to the docs for axios to see all of the available settings.
  * const driver = axios.instance({
@@ -88,10 +88,10 @@ export type ApiConsumer<T extends ApiDefinition> = {
  *   // You can add global settings here such as authentication headers
  * });
  * 
- * // Step 2: Bind the API definition to the axios instance
+ * // Step 3: Bind the API definition to the axios instance
  * const consumer = createConsumer(apiDefinition, myCustomAPI);
  * 
- * // Step 3: You can now use this object in your application to make HTTP calls to your backend:
+ * // Step 4: You can now use this object in your application to make HTTP calls to your backend:
  * const res = consumer.listAllPublications({
  *     // The parameters that you defined in your API will be required here.
  *     // However, this object is passed directly to your axios instance, and you can add

@@ -42,5 +42,5 @@ $(NODE_MODULES): package.json package-lock.json
 $(TASKS): $(PACKAGES)
 
 .PHONY: $(PACKAGES)
-$(PACKAGES):
+$(PACKAGES): $(NODE_MODULES)
 	$(MAKE) -C $@ $(MAKECMDGOALS)

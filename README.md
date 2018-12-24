@@ -2,23 +2,22 @@
 
 Type safety across REST APIs in TypeScript!
 
-## <a name="intro"></a> What is this?
+## What is this?
 
 Rest.ts lets you write API contracts that tie together consumers and producers within the type system. Out of the box, Rest.ts gives you the following features:
 - Auto-completion / intelliSense
 - Easy code navigation
 
-[![Overview](./resources/elevator-pitch.png)](http://code.hmil.fr/rest.ts/resources/elevator-pitch.png)
+[![Overview](./resources/elevator-pitch.png)](http://code.hmil.fr/rest.ts/resources/elevator-pitch.png)  
+*_It would be possible to generate swagger-style API docs from rest.ts definitions, but this feature has not been created yet. Contributors welcome!_
 
-## <a name="documentation"></a> Documentation
-
-### Guides
+## Guides
 
 If you are just getting started, read the five minutes [**quick start**](https://github.com/hmil/rest.ts/wiki/Quick-Start) guide to get up to speed.
 
 You will find [**all guides** in the wiki](https://github.com/hmil/rest.ts/wiki).
 
-### API documentation
+## API documentation
 
 If you are looking for advanced features, you might want to take a look at the API documentation for the module you are using:
 
