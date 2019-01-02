@@ -5,9 +5,7 @@
 import { BadRequestHttpException } from '@senhung/http-exceptions';
 import * as express from 'express';
 
-import { ApiDefinition, EndpointDefinition, RemoveKey, Diff } from 'rest-ts-core';
-import { getPathWithParams } from 'rest-ts-core';
-import { ExtractRuntimeType, deserialize } from 'rest-ts-core';
+import { ApiDefinition, EndpointDefinition, buildGenericPathname, ExtractRuntimeType, deserialize } from 'rest-ts-core';
 import { Tuple2Dict } from 'rest-ts-core';
 
 /**
@@ -143,7 +141,7 @@ export function createRouter<T extends ApiDefinition>(apiDefinition: T, hash: Ro
     Object.keys(apiDefinition).forEach((i) => {
         const endpoint = apiDefinition[i];
         const def = endpoint.def;
-        const path = getPathWithParams(def);
+        const path = buildGenericPathname(def);
         switch (endpoint.def.method) {
             case 'GET':
                 router.get(path, makeHandler(def, hash[i].bind(hash)));

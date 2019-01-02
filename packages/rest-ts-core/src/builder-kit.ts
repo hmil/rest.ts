@@ -1,9 +1,10 @@
 /**
+ * Internal stuff
  * @module rest-ts-core
  */
 
-import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition, EndpointDefinition } from './base';
-import { RemoveKey } from '.';
+import { AEndpointBuilder, HttpMethod, QueryParams, ApiDefinition, EndpointDefinition } from './types';
+import { RemoveKey } from './private/ts-kung-fu';
 
 /**
  * Builder class to create endpoint definitions.
@@ -133,7 +134,7 @@ export class EndpointBuilder<T extends Partial<EndpointDefinition>> implements A
     /**
      * Add query parameters.
      * 
-     * Note that query parameters are always optional (TODO: maybe don't enforce that?).
+     * Note that query parameters are always optional.
      * 
      * Example:
      * 

@@ -3,7 +3,7 @@
  */
 
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, makePathWithParams } from 'rest-ts-core';
+import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, buildPathnameFromParams } from 'rest-ts-core';
 
 type IsInRecord<T, Key extends keyof T> = T extends Record<Key, any> ? Key : never;
 type KeyIfDefined<T, Key extends keyof T> = Key extends IsInRecord<T, Key> ? Key : never;
@@ -122,7 +122,7 @@ function makeAxiosEndpoint<T extends EndpointDefinition>(axios: AxiosInstance, d
         const query = args != null ? args.query : undefined;
         return axios({
             method: def.method.toLowerCase(),
-            url: makePathWithParams(def, params),
+            url: buildPathnameFromParams(def, params),
             params: query,
             data: body
         });
