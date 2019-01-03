@@ -27,4 +27,12 @@ If you are looking for advanced features, you might want to take a look at the A
 
 ## Contributing
 
-This project is now past the _MVP_. It works pretty darn well, and the core use cases are covered with tests. However, there are certainly corner cases out there which haven't been tested. **Please give this project a try and, more importantly, leave some feedback in the issues section**.
+This is an open source project maintained for free on a human being's spare time. It can only be as good as its user community is willing to make it. 
+- If you use this project, star it. It helps to get an idea of how many users there are.
+- If something is not working, figure out why. If you can, share your findings in a new issue. If you can't, share your findings in a new issue.
+- If something is missing, open an issue to spark the discussion.
+
+## Related work
+
+You may also be interested in [RESTyped](https://github.com/rawrmaan/restyped), which fulfills the same role as Rest.ts, but with a different take on the problem.  
+**See [Rest.ts vs RESTyped](https://github.com/hmil/rest.ts/wiki/Rest.ts-vs-RESTyped) to chose which one best suits your requirements.**

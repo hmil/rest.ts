@@ -23,7 +23,46 @@ interface TypedRequest<T extends EndpointDefinition> extends express.Request {
     query: ExtractRuntimeType<T['query']>;
 }
 
-type RouteHandler<T extends EndpointDefinition> =
+/**
+ * An individual endpoint handler.
+ * 
+ * Handles requests made to a given endpoint of the API, and returns the appropriate response.
+ * Route handlers have their input and output types constrained by the API definition.
+ * It is recommended you read the wiki page [express usage guide](https://github.com/hmil/rest.ts/wiki/Express-usage-guide)
+ * first to get an idea of how this works, then come back here for the details.
+ * 
+ * Contrary to express handlers, rest.ts handlers usually don't need the `res` argument. Instead,
+ * the desired response type should be returned from the function. rest.ts will serialize it and send it back to the client.
+ * Using `res.send()` is an antipattern and should only be done as a last resort, if you clearly understand the consequences.
+ * Note that if your handlers starts sending something out using the `res` object,
+ * (ie. if the response headers get sent), then it must terminate the response itself.
+ * 
+ * Handlers can be asynchronous. If a promise is returned from the handler, rest.ts will await it before
+ * continuing.
+ * 
+ * A handler can do one of three things: return some data, skip itself, or fail.
+ * 
+ * The first case is easy: The request was successful and the handler returns the expected DTO type, or
+ * it returns a Promise which then gets resolved with a value.
+ * 
+ * The second case corresponds to calling `next` without arguments in express: the handler doesn't know
+ * what to do with this request and forwards it to the next middleware in the server stack. You do this
+ * by returning `undefined`, or, if you've returned a promise, by resolving the promise with `undefined`.
+ * 
+ * The third case happens if the handler throws an exception, or if it returns a promise which gets rejected.
+ * The error is passed to express' error handling stack, where you can get a chance to further process it.
+ * 
+ * @param req **req** The express request object, with additional type information corresponding to the request parameters
+ * defined in the API specification
+ * @param res **res** The unmodified express response object. Only use this as a last resort. You should `return`
+ * the response payload rather than passing it to `res.send()`
+ * @return The response payload, which must be compatible with the response type defined in the API specification.
+ * If a promise is returned: rejecting the promise has the same effect as throwing an exception in the handler, 
+ * resolving the promise has the same effect as returning the resolving value directly from the handler.
+ * **If the value is undefined, the request is passed down the next handler in the server stack.** If you don't
+ * want your handler to return anything, call `res.end()` or make it return an empty string or something like that.
+ */
+export type RouteHandler<T extends EndpointDefinition> =
     (req: TypedRequest<T>, res: express.Response) => PromiseOrValue<ExtractRuntimeType<T['response']>>;
 
 type RouterDefinition<T extends ApiDefinition> = {
