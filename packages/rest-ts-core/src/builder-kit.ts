@@ -1,5 +1,4 @@
 /**
- * Internal stuff
  * @module rest-ts-core
  */
 

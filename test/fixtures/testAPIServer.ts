@@ -36,4 +36,10 @@ export const router = buildRouter(todoAPI, (builder) => builder
             lyrics: req.body.message
         };
     })
+    .protoBodyAndResponse((req) => {
+        return {
+            cats: req.body.messages,
+            isEnabled: req.body.kind === 'person'
+        };
+    })
 );
