@@ -5,6 +5,9 @@ SRC=$(shell find src -type f -name '*.ts')
 .PHONY: build
 build: $(BIN)
 
+clean:
+	rm -rf dist
+
 .PHONY: lint
 lint:
 	../../node_modules/.bin/tslint -p .

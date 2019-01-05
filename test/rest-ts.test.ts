@@ -118,3 +118,14 @@ test('constructor-based', async () => {
     expect(response.data.happy).toEqual(true);
     expect(response.data.lyrics).toEqual('Hello world');
 });
+
+test('prototype-based', async () => {
+    const response = await client.protoBodyAndResponse({
+        body: {
+            messages: ['a', 'b'],
+            kind: 'cat'
+        }
+    });
+    expect(response.data.cats.map((c) => `(${c})`)).toEqual(['(a)', '(b)']);
+    expect(response.data.isEnabled).toEqual(false);
+});

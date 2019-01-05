@@ -2,7 +2,7 @@
 NODE_MODULES=node_modules/.makets
 
 PACKAGES=$(wildcard packages/*)
-TASKS=build lint publish
+TASKS=build lint publish clean
 DOCS_ROOT=doc/index.html
 
 packages/rest-ts-express: packages/rest-ts-core

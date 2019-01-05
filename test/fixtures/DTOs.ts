@@ -48,3 +48,13 @@ export class ClassBasedResponse {
             public happy: boolean) {
     }
 }
+
+export const protoBasedResponse = {
+    cats: ['string'],
+    isEnabled: true
+};
+
+export const protoBasedRequest = {
+    messages: ['string'],
+    kind: '' as 'person' | 'cat'
+};
