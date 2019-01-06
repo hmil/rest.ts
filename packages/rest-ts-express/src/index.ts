@@ -227,6 +227,13 @@ function sanitizeIncomingRequest(def: EndpointDefinition, req: express.Request) 
         } catch (e) {
             throw new BadRequestHttpException(e);
         }
+    }   
+    if (req.query != null) {
+        try {
+            req.query = def.query == null ? null : deserialize(def.query, req.query);
+        } catch (e) {
+            throw new BadRequestHttpException(e);
+        }
     }
 }
 
