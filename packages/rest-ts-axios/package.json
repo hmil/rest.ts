@@ -1,12 +1,12 @@
 {
     "name": "rest-ts-axios",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "description": "Type-safe rest API definitions for axios",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "peerDependencies": {
         "axios": "^0.18.0",
-        "rest-ts-core": "^0.4.1"
+        "rest-ts-core": "^0.4.2"
     },
     "files": [
         "dist",
