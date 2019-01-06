@@ -4,8 +4,8 @@ import { buildRouter } from 'rest-ts-express';
 export const router = buildRouter(todoAPI, (builder) => builder
     .simpleQueryParams((req) => {
         return {
-            query1: req.query.query1,
-            query2: req.query.query2 === 'true'
+            query1: req.query.mandatory,
+            query2: req.query.union === 'true'
         };
     })
     .pathParams((req) => {

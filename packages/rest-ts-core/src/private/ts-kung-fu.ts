@@ -34,3 +34,15 @@ export type RemoveKey<T, Key extends keyof T> = {
 export type Pick<T, Key extends keyof T> = {
     [K in Key]: T[K];
 };
+
+/**
+ * Remove keys whose values can be assigned undefined.
+ */
+export type UndefineableKeys<T, Keys> = Keys extends keyof T ? undefined extends T[Keys] ? Keys : never : never
+
+/**
+ * Makes keys whose value can be assigned undefined optional.
+ */
+export type MakeUndefineableKeysOptional<T> = {
+    [k in Diff<keyof T, UndefineableKeys<T, keyof T>>]: T[k];
+} & Partial<T>;

@@ -35,7 +35,6 @@ export type ExtractRuntimeType<T> =
             Array<ExtractBaseType<T>> :
         ExtractBaseType<T>;
 
-
 type ExtractBaseType<T> = T extends rt.Runtype ? rt.Static<T>
     : T extends { new(...args: any[]): infer T } ? T
     : T extends any[] | Function ? T
@@ -62,5 +61,5 @@ export function deserialize<T extends DTO_Type>(definition: T, data: unknown): u
 }
 
 function isRuntype(input: any): input is rt.Runtype {
-    return '_falseWitness' in input;
+    return 'tag' in input && 'check' in input && typeof input.check === 'function';
 }

@@ -3,7 +3,7 @@
  */
 
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, buildPathnameFromParams } from 'rest-ts-core';
+import { ApiDefinition, EndpointDefinition, Tuple2Dict, ExtractRuntimeType, buildPathnameFromParams, MakeUndefineableKeysOptional } from 'rest-ts-core';
 
 type IsInRecord<T, Key extends keyof T> = T extends Record<Key, any> ? Key : never;
 type KeyIfDefined<T, Key extends keyof T> = Key extends IsInRecord<T, Key> ? Key : never;
@@ -15,7 +15,7 @@ interface TypedAxiosResponse<T extends EndpointDefinition> extends AxiosResponse
 type RouteConsumerParams<T extends EndpointDefinition> = {
     [K in KeyIfDefined<T, 'params' | 'query' | 'body'>]:
         K extends 'params' ? Tuple2Dict<T[K]> :
-        K extends 'query' ? Partial<ExtractRuntimeType<T[K]>> :
+        K extends 'query' ? MakeUndefineableKeysOptional<ExtractRuntimeType<T[K]>> :
         ExtractRuntimeType<T[K]>;
 } & AxiosRequestConfig;
 

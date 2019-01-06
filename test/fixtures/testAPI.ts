@@ -29,10 +29,11 @@ export const todoAPI = defineAPI({
         .response(rt.String),
 
     simpleQueryParams: GET `/query`
-        .query({
-            'query1': rt.String,
-            'query2': rt.Union(rt.Literal('true'), rt.Literal('false'))
-        })
+        .query(rt.Record({
+            'mandatory': rt.String,
+            'union': rt.Union(rt.Literal('true'), rt.Literal('false')),
+            'optional': rt.Union(rt.String, rt.Undefined)
+        }))
         .response(QueryParamsResponse),
 
     simpleRequestBody: POST `/simpleBody`

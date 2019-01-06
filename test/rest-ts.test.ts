@@ -3,7 +3,8 @@ import { getClient } from './fixtures/testAPIClient';
 import * as express from 'express';
 import * as http from 'http';
 import { json } from 'body-parser';
-import { ClassBasedResponse, ClassBasedRequest } from './fixtures/DTOs';
+import { ClassBasedRequest } from './fixtures/DTOs';
+import { match } from 'minimatch';
 
 const port = 3000
 const apiMountPoint = '/api';
@@ -75,12 +76,21 @@ test('path parameters', async () => {
 test('query params', async () => {
     const response = await client.simpleQueryParams({
         query: {
-            query1: 'hello',
-            query2: 'true'
+            union: 'true',
+            mandatory: 'hello'
         }
     });
     expect(response.data.query1).toEqual('hello');
     expect(response.data.query2).toEqual(true);
+});
+
+test('bad query params', async () => {
+    await expect(client.simpleQueryParams({
+        query: {
+            union: 'true',
+            mandatory: null as any // Force an error
+        }
+    })).rejects.toHaveProperty('message', 'Request failed with status code 400');
 });
 
 test('request body', async () => {
