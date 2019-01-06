@@ -107,6 +107,17 @@ test('request body', async () => {
     expect(response.data.id).toEqual('deadbeef');
 });
 
+
+test('bad request body', async () => {
+    await expect(client.simpleRequestBody({
+        body: {
+            title: 'abc',
+            done: false,
+            type: 12 as any
+        }
+    })).rejects.toHaveProperty('message', 'Request failed with status code 400');
+});
+
 test('no response', async () => {
     // An endpoint with no response will yield a 404
     try {
