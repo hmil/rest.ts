@@ -25,13 +25,26 @@ type UnknownRouteConsumerParams = {
     body: unknown;
 };
 
-type RouteConsumer<T extends EndpointDefinition> = KeyIfDefined<T, 'params' | 'body'> extends never ?
-    // If the only property set is the query, then the parameter hash is optional
-    T extends Record<'query', any> ? (params?: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>
-    // Otherwise, (if none of the keys are set), the function takes no parameter at all
-    : () => Promise<TypedAxiosResponse<T>>
-    // If any other key is set, the parameter hash is required
-    : (params: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>;
+type RouteConsumerMandatoryArgument<T extends EndpointDefinition> = (params: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>;
+type RouteConsumerOptionalArgument<T extends EndpointDefinition> = (params?: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>;
+
+type RouteConsumer<T extends EndpointDefinition> = 
+    // If the call takes no parameter, then make the argument optional
+    KeyIfDefined<T, 'params' | 'body' | 'query'> extends never ? RouteConsumerOptionalArgument<T>
+    // Otherwise, if the only parameter is the query,
+    : KeyIfDefined<T, 'params' | 'body'> extends never ?
+        // and, if that query has only optional members, then make the argument optional
+        {} extends MakeUndefineableKeysOptional<ExtractRuntimeType<T['query']>> ? RouteConsumerOptionalArgument<T>
+        : RouteConsumerMandatoryArgument<T>
+    : RouteConsumerMandatoryArgument<T>;
+
+// KeyIfDefined<T, 'params' | 'body'> extends never ?
+//     // If the only property set is the query, then the parameter hash is optional
+//     T extends Record<'query', any> ? (params?: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>
+//     // Otherwise, (if none of the keys are set), the function takes no parameter at all
+//     : () => Promise<TypedAxiosResponse<T>>
+//     // If any other key is set, the parameter hash is required
+//     : (params: RouteConsumerParams<T>) => Promise<TypedAxiosResponse<T>>;
 
 /**
  * Thin wrapper around an instance of axios.

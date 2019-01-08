@@ -36,6 +36,11 @@ export const todoAPI = defineAPI({
         }))
         .response(QueryParamsResponse),
 
+    optionalQueryParams: GET `/query/optional`
+        .query({
+            'maybeParam': '' as string | undefined
+        }),
+
     simpleRequestBody: POST `/simpleBody`
         .body(TodoItem)
         .response(SavedTodoItem),

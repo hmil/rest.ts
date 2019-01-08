@@ -15,8 +15,8 @@ export const router = buildRouter(todoAPI, (builder) => builder
             id: req.params['id']
         };
     })
-    .noRepsonseEndpoint(async (req) => {
-        // noop
+    .noRepsonseEndpoint(async (req, res) => {
+        // no-op. Will 404
     })
     .simpleRequestBody(async (req) => {
         return {
@@ -41,5 +41,8 @@ export const router = buildRouter(todoAPI, (builder) => builder
             cats: req.body.messages,
             isEnabled: req.body.kind === 'person'
         };
+    })
+    .optionalQueryParams(async (req, res) => {
+        res.end(); // no-op, but does not 404
     })
 );

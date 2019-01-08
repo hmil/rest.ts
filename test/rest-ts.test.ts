@@ -150,3 +150,9 @@ test('prototype-based', async () => {
     expect(response.data.cats.map((c) => `(${c})`)).toEqual(['(a)', '(b)']);
     expect(response.data.isEnabled).toEqual(false);
 });
+
+test('Query param simplification', async () => {
+    // This compiles because the query has no mandatory query parameters. The simplification
+    // allows us to omit the argument entirely instead of having to pass in { query: {} }.
+    await client.optionalQueryParams();
+});
