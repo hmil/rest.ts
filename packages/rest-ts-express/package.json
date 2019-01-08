@@ -1,12 +1,12 @@
 {
     "name": "rest-ts-express",
-    "version": "0.4.2",
+    "version": "0.5.0",
     "description": "Type-safe rest API definitions for express",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "peerDependencies": {
         "express": "^4.0.0",
-        "rest-ts-core": "^0.4.2"
+        "rest-ts-core": "^0.5.0"
     },
     "files": [
         "dist",
