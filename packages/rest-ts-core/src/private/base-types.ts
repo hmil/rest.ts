@@ -9,11 +9,11 @@ import * as rt from 'runtypes';
 
 export type Dictionary<T> = { [_: string]: T };
 
-export type ArrayDefinition<T> = T extends rt.Runtype ? rt.Array<T> | Array<T> : Array<T>;
+export type ArrayDefinition<T> = T extends rt.Runtype ? rt.Array<T, false> | Array<T> : Array<T>;
 
 export type StringDefinition = rt.String | string;
 export type NumberDefinition = rt.Number | number;
-export type RecordDefinition<T> = T extends rt.Runtype ? rt.Record<Dictionary<T>> | Dictionary<T> : Dictionary<T>;
+export type RecordDefinition<T> = T extends rt.Runtype ? rt.Record<Dictionary<T>, false> | Dictionary<T> : Dictionary<T>;
 
 export type DTO_Type = rt.Runtype<any> | RecordDefinition<any> | NumberDefinition | StringDefinition;
 

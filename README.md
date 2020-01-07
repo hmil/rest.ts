@@ -25,6 +25,15 @@ If you are looking for advanced features, you might want to take a look at the A
 - [rest-ts-express](http://code.hmil.fr/rest.ts/modules/rest_ts_express.html)
 - [rest-ts-axios](http://code.hmil.fr/rest.ts/modules/rest_ts_axios.html)
 
+## Compatibility
+
+Compatibility between rest.ts and runtypes:
+
+Rest.ts  |  Runtypes
+---------|----------
+< 0.6.0  |  2.x.x
+>=0.6.0  |  4.x.x
+
 ## Contributing
 
 This is an open source project maintained for free on a human being's spare time. It can only be as good as its user community is willing to make it. 

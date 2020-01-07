@@ -5,7 +5,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "dependencies": {
-        "runtypes": "^2.1.6"
+        "runtypes": "^4.0.3"
     },
     "files": [
         "dist",
