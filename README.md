@@ -29,10 +29,11 @@ If you are looking for advanced features, you might want to take a look at the A
 
 Compatibility between rest.ts and runtypes:
 
-Rest.ts  |  Runtypes
----------|----------
-< 0.6.0  |  2.x.x
->=0.6.0  |  4.x.x
+|Rest.ts  |  Runtypes
+|---------|----------
+|< 0.6.0  |  2.x.x
+|>=0.6.0  |  4.x.x
+
 
 ## Contributing
 
