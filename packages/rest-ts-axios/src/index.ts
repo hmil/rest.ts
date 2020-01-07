@@ -121,7 +121,7 @@ export type ApiConsumer<T extends ApiDefinition> = {
 export function createConsumer<T extends ApiDefinition>(apiDefinition: T, axios: AxiosInstance): ApiConsumer<T> {
     const ret: ApiConsumer<T> = {} as any;
     for (const i of Object.keys(apiDefinition)) {
-        ret[i] = makeAxiosEndpoint(axios, apiDefinition[i].def) as any;
+        ret[i as keyof typeof apiDefinition] = makeAxiosEndpoint(axios, apiDefinition[i].def) as any;
     }
     return ret;
 }
@@ -133,12 +133,13 @@ function makeAxiosEndpoint<T extends EndpointDefinition>(axios: AxiosInstance, d
         const params = args != null ? args.params : undefined;
         const body = args != null ? args.body : undefined;
         const query = args != null ? args.query : undefined;
-        return axios({
-            method: def.method.toLowerCase(),
+        const cfg: AxiosRequestConfig = {
+            method: def.method,
             url: buildPathnameFromParams(def, params),
             params: query,
             data: body
-        });
+        };
+        return axios(cfg);
     }
     return handler;
 }

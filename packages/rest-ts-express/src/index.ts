@@ -208,8 +208,8 @@ export function createRouter<T extends ApiDefinition>(apiDefinition: T, hash: Ro
 function makeHandler<T extends EndpointDefinition>(def: T, fn: RouteHandler<T>) {
     return (req: express.Request, res: express.Response, next: express.NextFunction) => {
         (async () => {
-            sanitizeIncomingRequest(def, req);
-            const data = await Promise.resolve(fn(req, res));
+            const saneReq = sanitizeIncomingRequest(def, req);
+            const data = await Promise.resolve(fn(saneReq, res));
             if (data !== undefined && !res.headersSent) {
                 res.send(data);
             } else {
@@ -220,7 +220,7 @@ function makeHandler<T extends EndpointDefinition>(def: T, fn: RouteHandler<T>) 
     };
 }
 
-function sanitizeIncomingRequest(def: EndpointDefinition, req: express.Request) {
+function sanitizeIncomingRequest<T extends EndpointDefinition>(def: T, req: express.Request): TypedRequest<T> {
     if (req.body != null) {
         try {
             req.body = def.body == null ? null : deserialize(def.body, req.body);
@@ -235,6 +235,7 @@ function sanitizeIncomingRequest(def: EndpointDefinition, req: express.Request) 
             throw new BadRequestHttpException(e);
         }
     }
+    return req as TypedRequest<T>;
 }
 
 /* istanbul ignore next */
