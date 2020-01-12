@@ -1,0 +1,558 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>EndpointBuilder | Rest.ts</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Rest.ts</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/rest_ts_core.html">rest-ts-core</a>
+				</li>
+				<li>
+					<a href="rest_ts_core.endpointbuilder.html">EndpointBuilder</a>
+				</li>
+			</ul>
+			<h1>Class EndpointBuilder&lt;T&gt;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Builder class to create endpoint definitions.</p>
+					</div>
+					<p>This class provides a high-level user friendly interface to create a typed definition of an API endpoint.</p>
+					<p>Endpoint definitions are usually grouped together in API definitions, which can be shared between producers
+					and consumers of the API to create a type-safe communication channel.</p>
+					<p>You will generally not need to create this class explicitly. Instead, use the helper methods <a href="../modules/rest_ts_core.html#get">GET</a>, <a href="../modules/rest_ts_core.html#put">PUT</a>,
+					<a href="../modules/rest_ts_core.html#patch">PATCH</a>, <a href="../modules/rest_ts_core.html#post">POST</a> or <a href="../modules/rest_ts_core.html#delete">DELETE</a> to create an instance of EndpointBuilder.</p>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rest_ts_core.endpointdefinition.html" class="tsd-signature-type">EndpointDefinition</a><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">EndpointBuilder</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/rest_ts_core.aendpointbuilder.html" class="tsd-signature-type">AEndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="rest_ts_core.endpointbuilder.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="rest_ts_core.endpointbuilder.html#def" class="tsd-kind-icon">def</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="rest_ts_core.endpointbuilder.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="rest_ts_core.endpointbuilder.html#method" class="tsd-kind-icon">method</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="rest_ts_core.endpointbuilder.html#query" class="tsd-kind-icon">query</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="rest_ts_core.endpointbuilder.html#response" class="tsd-kind-icon">response</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Endpoint<wbr>Builder<span class="tsd-signature-symbol">(</span>def<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/hmil/rest.ts/blob/3a87808/packages/rest-ts-core/src/builder-kit.ts#L19">rest-ts-core/src/builder-kit.ts:19</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>def: <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="def" class="tsd-anchor"></a>
+					<h3>def</h3>
+					<div class="tsd-signature tsd-kind-icon">def<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Readonly</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/rest_ts_core.aendpointbuilder.html">AEndpointBuilder</a>.<a href="../interfaces/rest_ts_core.aendpointbuilder.html#def">def</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/hmil/rest.ts/blob/3a87808/packages/rest-ts-core/src/builder-kit.ts#L21">rest-ts-core/src/builder-kit.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="body" class="tsd-anchor"></a>
+					<h3>body</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">body&lt;U&gt;<span class="tsd-signature-symbol">(</span>body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"body"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/hmil/rest.ts/blob/3a87808/packages/rest-ts-core/src/builder-kit.ts#L129">rest-ts-core/src/builder-kit.ts:129</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change the type of the request body.</p>
+								</div>
+								<p>You must provide a real object whose type will be inferred and used as the response type for this endpoint.
+								Rest.ts offers multiple ways to do this:</p>
+								<ol>
+									<li><p>Use a regular object.
+											For instance, if you need a string, use <code>&#39;string&#39;</code>, if you need a number, use <code>123</code>.
+										This also works for complex objects like so:</p>
+										<pre><code> POST `/<span class="hljs-keyword">current</span>-<span class="hljs-keyword">user</span>`
+     .body({
+         id: <span class="hljs-string">'string'</span>,
+         kind: <span class="hljs-string">'person'</span> <span class="hljs-keyword">as</span> <span class="hljs-string">'person'</span> | <span class="hljs-string">'robot'</span> | <span class="hljs-string">'cat'</span>
+     })</code></pre></li>
+									<li><p>Some people like to use classes to define their DTOs. If this is your situation, you may just put the
+										class constructor here, and the instance type will be inferred.</p>
+										<pre><code> <span class="hljs-keyword">class</span> <span class="hljs-title">CurrentUserDTO</span> {
+     id: <span class="hljs-keyword">string</span>;
+     kind: <span class="hljs-string">'person'</span> | <span class="hljs-string">'robot'</span> | <span class="hljs-string">'cat'</span>;
+ }
+
+ POST `/current-user`
+     .body(CurrentUserDTO)</code></pre></li>
+									<li><p><strong>(Preferred method)</strong> Use a Runtype. <a href="https://github.com/pelotom/runtypes">runtypes</a> is a
+											library that allows you to create type definitions with runtime type metadata to ensure that
+											input data conforms to an expected type.
+										Rest.ts has first-class support for runtypes:</p>
+										<pre><code> <span class="hljs-keyword">const</span> CurrentUserDTO = rt.Record({
+      id: rt.<span class="hljs-built_in">String</span>,
+      kind: rt.Union(
+          rt.<span class="hljs-built_in">String</span>(<span class="hljs-string">'person'</span>),
+          rt.<span class="hljs-built_in">String</span>(<span class="hljs-string">'robot'</span>),
+          rt.<span class="hljs-built_in">String</span>(<span class="hljs-string">'cat'</span>)
+      )
+ })<span class="hljs-comment">;</span>
+
+ POST `/current-user`
+      .body(CurrentUserDTO)</code></pre></li>
+								</ol>
+								<p>rest-ts-express automatically type-checks incoming data when the body of the endpoint definition is a runtype.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>U</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>body: <span class="tsd-signature-type">U</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"body"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="method" class="tsd-anchor"></a>
+					<h3>method</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">method&lt;U&gt;<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"method"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/hmil/rest.ts/blob/3a87808/packages/rest-ts-core/src/builder-kit.ts#L27">rest-ts-core/src/builder-kit.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change the HTTP method of this endpoint</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>U<span class="tsd-signature-symbol">: </span><a href="../modules/rest_ts_core.html#httpmethod" class="tsd-signature-type">HttpMethod</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>method: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Any valid HTTP method. See <a href="../modules/rest_ts_core.html#httpmethod">HttpMethod</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"method"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="query" class="tsd-anchor"></a>
+					<h3>query</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">query&lt;U&gt;<span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"query"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/hmil/rest.ts/blob/3a87808/packages/rest-ts-core/src/builder-kit.ts#L148">rest-ts-core/src/builder-kit.ts:148</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add query parameters.</p>
+								</div>
+								<p>Note that query parameters are always optional.</p>
+								<p>Example:</p>
+								<pre><code>    <span class="hljs-keyword">GET</span> `/users/<span class="hljs-keyword">search</span>`
+        .query({
+            <span class="hljs-string">'order'</span>: <span class="hljs-string">'string'</span>,
+            <span class="hljs-string">'filter'</span>: <span class="hljs-string">'string'</span>
+        })</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>U<span class="tsd-signature-symbol">: </span><a href="../modules/rest_ts_core.html#queryparams" class="tsd-signature-type">QueryParams</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>query: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>type of the query parameters.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"query"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="response" class="tsd-anchor"></a>
+					<h3>response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">response&lt;U&gt;<span class="tsd-signature-symbol">(</span>response<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">U</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"response"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/hmil/rest.ts/blob/3a87808/packages/rest-ts-core/src/builder-kit.ts#L77">rest-ts-core/src/builder-kit.ts:77</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Change the type of the response.</p>
+								</div>
+								<p>You must provide a real object whose type will be inferred and used as the response type for this endpoint.
+								Rest.ts offers multiple ways to do this:</p>
+								<ol>
+									<li><p>Use a regular object.
+											For instance, if you need a string, use <code>&#39;string&#39;</code>, if you need a number, use <code>123</code>.
+										This also works for complex objects like so:</p>
+										<pre><code> <span class="hljs-keyword">GET</span> `/<span class="hljs-keyword">current</span>-<span class="hljs-keyword">user</span>`
+     .response({
+         id: <span class="hljs-string">'string'</span>,
+         kind: <span class="hljs-string">'person'</span> <span class="hljs-keyword">as</span> <span class="hljs-string">'person'</span> | <span class="hljs-string">'robot'</span> | <span class="hljs-string">'cat'</span>
+     })</code></pre></li>
+									<li><p>Some people like to use classes to define their DTOs. If this is your situation, you may just put the
+										class constructor here, and the instance type will be inferred.</p>
+										<pre><code> <span class="hljs-keyword">class</span> CurrentUserDTO {
+     id: string;
+     kind: <span class="hljs-string">'person'</span> | <span class="hljs-string">'robot'</span> | <span class="hljs-string">'cat'</span>;
+ }
+
+ <span class="hljs-keyword">GET</span> `/<span class="hljs-keyword">current</span>-<span class="hljs-keyword">user</span>`
+     .response(CurrentUserDTO)</code></pre></li>
+									<li><p><strong>(Preferred method)</strong> Use a Runtype. <a href="https://github.com/pelotom/runtypes">runtypes</a> is a
+											library that allows you to create type definitions with runtime type metadata to ensure that
+											input data conforms to an expected type.
+										Rest.ts has first-class support for runtypes:</p>
+										<pre><code> <span class="hljs-keyword">const</span> CurrentUserDTO = rt.Record({
+      id: rt.<span class="hljs-built_in">String</span>,
+      kind: rt.Union(
+          rt.<span class="hljs-built_in">String</span>(<span class="hljs-string">'person'</span>),
+          rt.<span class="hljs-built_in">String</span>(<span class="hljs-string">'robot'</span>),
+          rt.<span class="hljs-built_in">String</span>(<span class="hljs-string">'cat'</span>)
+      )
+ })<span class="hljs-comment">;</span>
+
+ GET `/current-user`
+      .response(CurrentUserDTO)</code></pre></li>
+								</ol>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>U</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>response: <span class="tsd-signature-type">U</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>type of the response data.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="rest_ts_core.endpointbuilder.html" class="tsd-signature-type">EndpointBuilder</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">RemoveKey</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">"response"</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/rest_ts_axios.html">rest-<wbr>ts-<wbr>axios</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/rest_ts_core.html">rest-<wbr>ts-<wbr>core</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/rest_ts_express.html">rest-<wbr>ts-<wbr>express</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="rest_ts_core.endpointbuilder.html" class="tsd-kind-icon">Endpoint<wbr>Builder</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="rest_ts_core.endpointbuilder.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="rest_ts_core.endpointbuilder.html#def" class="tsd-kind-icon">def</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="rest_ts_core.endpointbuilder.html#body" class="tsd-kind-icon">body</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="rest_ts_core.endpointbuilder.html#method" class="tsd-kind-icon">method</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="rest_ts_core.endpointbuilder.html#query" class="tsd-kind-icon">query</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="rest_ts_core.endpointbuilder.html#response" class="tsd-kind-icon">response</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../interfaces/rest_ts_core.aendpointbuilder.html" class="tsd-kind-icon">AEndpoint<wbr>Builder</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/rest_ts_core.apidefinition.html" class="tsd-kind-icon">Api<wbr>Definition</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../interfaces/rest_ts_core.emptyinitialendpointdefinition.html" class="tsd-kind-icon">Empty<wbr>Initial<wbr>Endpoint<wbr>Definition</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/rest_ts_core.endpointdefinition.html" class="tsd-kind-icon">Endpoint<wbr>Definition</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../interfaces/rest_ts_core.initialendpointdefinition.html" class="tsd-kind-icon">Initial<wbr>Endpoint<wbr>Definition</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/rest_ts_core.html#httpmethod" class="tsd-kind-icon">Http<wbr>Method</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/rest_ts_core.html#queryparamtype" class="tsd-kind-icon">Query<wbr>Param<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+						<a href="../modules/rest_ts_core.html#queryparams" class="tsd-kind-icon">Query<wbr>Params</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/rest_ts_core.html#delete" class="tsd-kind-icon">DELETE</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/rest_ts_core.html#get" class="tsd-kind-icon">GET</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/rest_ts_core.html#patch" class="tsd-kind-icon">PATCH</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/rest_ts_core.html#post" class="tsd-kind-icon">POST</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/rest_ts_core.html#put" class="tsd-kind-icon">PUT</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../modules/rest_ts_core.html#defineapi" class="tsd-kind-icon">defineAPI</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
