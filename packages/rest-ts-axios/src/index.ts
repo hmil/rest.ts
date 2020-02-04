@@ -102,7 +102,7 @@ export type ApiConsumer<T extends ApiDefinition> = {
  * });
  * 
  * // Step 3: Bind the API definition to the axios instance
- * const consumer = createConsumer(apiDefinition, myCustomAPI);
+ * const consumer = createConsumer(myCustomAPI, driver);
  * 
  * // Step 4: You can now use this object in your application to make HTTP calls to your backend:
  * const res = consumer.listAllPublications({
