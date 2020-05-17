@@ -17,7 +17,7 @@
     "ts-node": "^8.5.4",
     "typedoc": "^0.13.0",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.9.2"
   },
   "scripts": {
     "test": "jest",
