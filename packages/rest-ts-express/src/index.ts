@@ -17,10 +17,8 @@ type PromiseOrValue<T> = PromiseLike<T> | T;
 /**
  * An express Request with proper typings.
  */
-interface TypedRequest<T extends EndpointDefinition> extends express.Request {
-    body: ExtractRuntimeType<T['body']>;
-    params: Tuple2Dict<T['params']>;
-    query: ExtractRuntimeType<T['query']>;
+interface TypedRequest<T extends EndpointDefinition> extends express.Request<Tuple2Dict<T['params']>, ExtractRuntimeType<T['response']>, ExtractRuntimeType<T['body']>, ExtractRuntimeType<T['query']>> {
+
 }
 
 /**
@@ -220,7 +218,7 @@ function makeHandler<T extends EndpointDefinition>(def: T, fn: RouteHandler<T>) 
     };
 }
 
-function sanitizeIncomingRequest<T extends EndpointDefinition>(def: T, req: express.Request): TypedRequest<T> {
+function sanitizeIncomingRequest<T extends EndpointDefinition>(def: T, req: express.Request<any, unknown, unknown, unknown>): TypedRequest<T> {
     if (req.body != null) {
         try {
             req.body = def.body == null ? null : deserialize(def.body, req.body);
