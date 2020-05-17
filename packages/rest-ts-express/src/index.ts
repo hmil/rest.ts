@@ -20,44 +20,44 @@ type PromiseOrValue<T> = PromiseLike<T> | T;
 interface TypedRequest<T extends EndpointDefinition> extends express.Request {
     body: ExtractRuntimeType<T['body']>;
     params: Tuple2Dict<T['params']>;
-    query: ExtractRuntimeType<T['query']>;
+    query: NonNullable<ExtractRuntimeType<T['query']>>;
 }
 
 /**
  * An individual endpoint handler.
- * 
+ *
  * Handles requests made to a given endpoint of the API, and returns the appropriate response.
  * Route handlers have their input and output types constrained by the API definition.
  * It is recommended you read the wiki page [express usage guide](https://github.com/hmil/rest.ts/wiki/Express-usage-guide)
  * first to get an idea of how this works, then come back here for the details.
- * 
+ *
  * Contrary to express handlers, rest.ts handlers usually don't need the `res` argument. Instead,
  * the desired response type should be returned from the function. rest.ts will serialize it and send it back to the client.
  * Using `res.send()` is an antipattern and should only be done as a last resort, if you clearly understand the consequences.
  * Note that if your handlers starts sending something out using the `res` object,
  * (ie. if the response headers get sent), then it must terminate the response itself.
- * 
+ *
  * Handlers can be asynchronous. If a promise is returned from the handler, rest.ts will await it before
  * continuing.
- * 
+ *
  * A handler can do one of three things: return some data, skip itself, or fail.
- * 
+ *
  * The first case is easy: The request was successful and the handler returns the expected DTO type, or
  * it returns a Promise which then gets resolved with a value.
- * 
+ *
  * The second case corresponds to calling `next` without arguments in express: the handler doesn't know
  * what to do with this request and forwards it to the next middleware in the server stack. You do this
  * by returning `undefined`, or, if you've returned a promise, by resolving the promise with `undefined`.
- * 
+ *
  * The third case happens if the handler throws an exception, or if it returns a promise which gets rejected.
  * The error is passed to express' error handling stack, where you can get a chance to further process it.
- * 
+ *
  * @param req **req** The express request object, with additional type information corresponding to the request parameters
  * defined in the API specification
  * @param res **res** The unmodified express response object. Only use this as a last resort. You should `return`
  * the response payload rather than passing it to `res.send()`
  * @return The response payload, which must be compatible with the response type defined in the API specification.
- * If a promise is returned: rejecting the promise has the same effect as throwing an exception in the handler, 
+ * If a promise is returned: rejecting the promise has the same effect as throwing an exception in the handler,
  * resolving the promise has the same effect as returning the resolving value directly from the handler.
  * **If the value is undefined, the request is passed down the next handler in the server stack.** If you don't
  * want your handler to return anything, call `res.end()` or make it return an empty string or something like that.
@@ -90,24 +90,24 @@ type RouterBuilder<T extends ApiDefinition, Built extends RouterDefinition<any>,
 
 /**
  * Create an express.js router from an API definition.
- * 
+ *
  * This is the preferred way to construct a router with rest-ts-express. The builder pattern
  * allows you to catch many potential mistakes, such as a missing or extraneous definition, and
  * provides advanced type-checking of the handler code you write.
- * 
+ *
  * This method accepts a type definition and a callback. You create the router using the builder
  * passed to the callback. This builder has one method for each endpoint of the API definition,
  * this method lets you write the implementation of that endpoint.
- * 
+ *
  * For instance, if your API definition has the following endpoints:
  * ```ts
- * const myCustomAPI = defineAPI({    
+ * const myCustomAPI = defineAPI({
  *     listPublications: GET `/publications/${'category'}` .response(Publications),
  *     addPublication: POST `/publications` .body(Article) .response(PublicationResponse),
  *     removePublication: DELETE `/publications/${'id'}` .response(RemoveResponse)
  * });
  * ```
- * 
+ *
  * Then you will implement the router like so:
  * ```ts
  * const router = buildRouter(myCustomAPI, (builder) => builder
@@ -124,13 +124,13 @@ type RouterBuilder<T extends ApiDefinition, Built extends RouterDefinition<any>,
  *      })
  * );
  * ```
- * 
+ *
  * Attach your router to some express server just like any other regular router:
  * ```ts
  * const app = express();
  * app.use('/api/root', router);
  * ```
- * 
+ *
  * @param apiDefinition The API definition you want to implement
  * @param cb A construction callback
  */
@@ -149,13 +149,13 @@ export function buildRouter<T extends ApiDefinition>(apiDefinition: T, cb: (buil
 
 /**
  * Alternate way to create a router.
- * 
+ *
  * You should use {@link buildRouter} whenever possible. It provides more safety and plays better with IDEs than
  * this method.
- * 
+ *
  * This function works similarly to {@link buildRouter} except that you pass a simple object hash and don't use a builder.
  * Each property of the hash is a route handler for the endpoint of the same name.
- * 
+ *
  * Example:
  * ```ts
  * const router = createRouter(myCustomAPI, {
@@ -221,16 +221,17 @@ function makeHandler<T extends EndpointDefinition>(def: T, fn: RouteHandler<T>) 
 }
 
 function sanitizeIncomingRequest<T extends EndpointDefinition>(def: T, req: express.Request): TypedRequest<T> {
-    if (req.body != null) {
+    if (req.body) {
         try {
-            req.body = def.body == null ? null : deserialize(def.body, req.body);
+            req.body = !def.body ? req.body : deserialize(def.body, req.body);
         } catch (e) {
             throw new BadRequestHttpException(e);
         }
-    }   
-    if (req.query != null) {
+    }
+    if (req.query) {
         try {
-            req.query = def.query == null ? null : deserialize(def.query, req.query);
+            type ValidateQuery = typeof req.query | NonNullable<T['query']>;
+            req.query = (!def.query ? req.query : deserialize(def.query, req.query)) as ValidateQuery;
         } catch (e) {
             throw new BadRequestHttpException(e);
         }
